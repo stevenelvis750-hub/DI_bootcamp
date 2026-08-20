@@ -1,0 +1,38 @@
+from datetime import datetime
+
+def is_leap_year(year):
+    """Check if a given year is a leap year."""
+    return (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+
+# 1. Ask for birthdate input
+birthdate_str = input("Enter your birthdate (DD/MM/YYYY): ")
+
+# Parse input date
+birthdate = datetime.strptime(birthdate_str, "%d/%m/%Y")
+today = datetime.today()
+
+# Calculate age
+age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+
+# Determine the number of candles (last digit of age)
+num_candles = age % 10
+
+# Generate candles line centered over the cake (width = 11)
+candles = ("i" * num_candles).center(11, "_")
+
+# Construct single cake string
+cake = f"""       _{candles}_
+      |:H:a:p:p:y:|
+    __|___________|__
+   |^^^^^^^^^^^^^^^^^|
+   |:B:i:r:t:h:d:a:y:|
+   |                 |
+   ~~~~~~~~~~~~~~~~~~~"""
+
+# Print cake(s) based on leap year bonus
+if is_leap_year(birthdate.year):
+    print(cake)
+    print("\n" + cake)
+else:
+    print(cake)
+    
