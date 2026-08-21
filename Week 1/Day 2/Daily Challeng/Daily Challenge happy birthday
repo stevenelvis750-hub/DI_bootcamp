@@ -23,7 +23,7 @@ candles = ("i" * num_candles).center(11, "_")
 # Construct single cake string
 cake = f"""       _{candles}_
       |:H:a:p:p:y:|
-    __|___________|__
+    __|___________|__ 
    |^^^^^^^^^^^^^^^^^|
    |:B:i:r:t:h:d:a:y:|
    |                 |
