@@ -117,7 +117,7 @@ sentences = [s for s in re.split(r'[.!?]', paragraph) if s.strip()]
 words = paragraph.split()
 unique_words = set(words)
 
-# Bonuses
+
 non_whitespace_chars = len(paragraph.replace(" ", "").replace("\n", ""))
 words_per_sentence = len(words) / len(sentences) if sentences else 0
 non_unique_words_count = len(words) - len(unique_words)

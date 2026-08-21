@@ -1,29 +1,29 @@
-#Exercise 1: Hello World
+# Exercise 1: Hello World
 print("Hello world\n" * 4, end="")
 
 
-#exercise 2: Some Math
+# Exercise 2: Some Math
 print((99 ** 3) * 8)
-print("The result of (99 ** 3) * 8 is:", (99 ** 3) * 8)
-print("The result of (99 ** 3) * 8 is:", (99 ** 3) * 8, "and the type of the result is:", type((99 ** 3) * 8))
 
 
-#exercise 3:What is the output
->>> 5 % 3          # Output: 2
->>> 3 == 3         # Output: True
->>> 3 == "3"       # Output: False (integer is not equal to string)
->>> "3" > 3        # Output: TypeError (cannot compare str and int with >)
->>> "Hello" == "hello" # Output: False (case-sensitive string comparison)
+# Exercise 3: What is the output?
+# Predictions: False, True, False, TypeError, False.
+print(5 < 3)  # False
+print(3 == 3)  # True
+print(3 == "3")  # False
+try:
+    print("3" > 3)  # TypeError
+except TypeError:
+    print("TypeError")
+print("Hello" == "hello")  # False
 
 
-#exercise 4: Your computer brand
+# Exercise 4: Your computer brand
 computer_brand = "Apple"
 print(f"I have a {computer_brand} computer.")
-print(f"My computer brand is {computer_brand}.")    
-print(f"My computer brand is {computer_brand.upper()}.")  # Output: My computer brand is APPLE.
 
 
-#exercise 5: Your result
+# Exercise 5: Your information
 name = "Alex"
 age = 25
 shoe_size = 42
@@ -31,7 +31,7 @@ info = f"My name is {name}, I am {age} years old, and my shoe size is {shoe_size
 print(info)
 
 
-#exercise 6 (a) and (b)
+# Exercise 6: A & B
 a = 10
 b = 5
 
@@ -39,7 +39,7 @@ if a > b:
     print("Hello World")
 
 
-#exercise 7
+# Exercise 7: Odd or Even
 number = int(input("Enter a number: "))
 
 if number % 2 == 0:
@@ -49,7 +49,7 @@ else:
 
 
 
-#exercise 8
+# Exercise 8: What's your name?
 my_name = "Alex"
 user_name = input("What is your name? ")
 
@@ -60,7 +60,7 @@ else:
 
 
 
-#exercise 9
+# Exercise 9: Tall enough to ride
 height = float(input("Enter your height in cm: "))
 
 if height > 145:
