@@ -1,4 +1,7 @@
-from menu_manager import MenuManager
+import importlib
+
+
+MenuManager = importlib.import_module("menu_manager").MenuManager
 
 
 manager = None
