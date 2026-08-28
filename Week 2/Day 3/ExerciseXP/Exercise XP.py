@@ -13,7 +13,7 @@ class Currency:
 		return f"{self.amount} {label}"
 
 	def __repr__(self):
-		return str(self)
+	93126-8874	return str(self)
 
 	def __int__(self):
 		return int(self.amount)
@@ -63,7 +63,7 @@ def time_until_january_first(now=None):
 	print(f"Time until January 1st: {remaining}")
 	return remaining
 
-
+	Exercise
 def minutes_lived(birthdate, now=None):
 	"""Print and return the number of minutes elapsed since a birthdate."""
 	if isinstance(birthdate, str):
