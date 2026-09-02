@@ -2,61 +2,47 @@ const people = ["Greg", "Mary", "Devon", "James"];
 
 // 1. Remove "Greg"
 people.shift();
-
 console.log(people);
-
 
 // 2. Replace "James" with "Jason"
 people[2] = "Jason";
-
 console.log(people);
-
 
 // 3. Add your name to the end
 people.push("Steven");
-
 console.log(people);
-
 
 // 4. Console.log Mary's index
 console.log(people.indexOf("Mary"));
 
-
 // 5. Make a copy WITHOUT Mary or your name
 const peopleCopy = people.slice(1, 3);
-
 console.log(peopleCopy);
-
 
 // 6. Find the index of "Foo"
 console.log(people.indexOf("Foo"));
 
-
 // 7. Create a variable called last
 const last = people[people.length - 1];
-
 console.log(last);
 
-
-#Exercise 2
+// Exercise 2
 const colors = ["blue", "red", "green", "purple", "black"];
 
 for (let i = 0; i < colors.length; i++) {
     console.log("My #" + (i + 1) + " choice is " + colors[i]);
 }
 
-
-#Exercise 3
-let number = Number(prompt("Enter a number:"));
+// Exercise 3
+let number = 11; // replace with Number(prompt("Enter a number:")) in browser
 
 while (number < 10) {
-    number = Number(prompt("Enter a new number:"));
+    number = 11; // replace with Number(prompt("Enter a new number:")) in browser
 }
 
 console.log("Your number is " + number);
 
-
-#Exercise 4
+// Exercise 4
 const building = {
     numberOfFloors: 4,
     numberOfAptByFloor: {
@@ -73,8 +59,7 @@ const building = {
     },
 };
 
-
-#Exercise 5
+// Exercise 5
 const family = {
     father: "John",
     mother: "Mary",
@@ -82,9 +67,7 @@ const family = {
     daughter: "Sarah"
 };
 
-
-
-#Exercise 6
+// Exercise 6
 const details = {
     my: "name",
     is: "Rudolf",
@@ -99,8 +82,7 @@ for (let key in details) {
 
 console.log(sentence);
 
-
-#Exercise 7
+// Exercise 7
 const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
 
 let firstLetters = [];
