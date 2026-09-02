@@ -125,7 +125,7 @@ function createCalendar(year, month) {
   let currentWeek = new Array(7).fill("");
 
   for (let i = 0; i < firstWeekday; i++) {
-    currentWeek[i] = "";
+    currentWeek["sun", "mon", "tue", "wed", "thu", "fri", "sat"]= "";
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
@@ -149,4 +149,4 @@ function createCalendar(year, month) {
 }
 
 // Example:
-createCalendar(2012, 9);
+createCalendar(2026, 9);

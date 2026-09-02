@@ -13,10 +13,9 @@ function displayNumbersDivisible(divisor = 23) {
   console.log("Sum:", sum);
 }
 
-displayNumbersDivisible();   // default 23
+displayNumbersDivisible();
 displayNumbersDivisible(3);
 displayNumbersDivisible(45);
-
 
 // Exercise 2: Shopping List
 const stock = {
@@ -24,7 +23,7 @@ const stock = {
   apple: 0,
   pear: 12,
   orange: 32,
-  blueberry: 1
+  blueberry: 1,
 };
 
 const prices = {
@@ -32,7 +31,7 @@ const prices = {
   apple: 2,
   pear: 1,
   orange: 1.5,
-  blueberry: 10
+  blueberry: 10,
 };
 
 const shoppingList = ["banana", "orange", "apple"];
@@ -41,10 +40,8 @@ function myBill() {
   let total = 0;
 
   for (let item of shoppingList) {
-    if (item in stock && stock[item] > 0) {
+    if (Object.prototype.hasOwnProperty.call(stock, item) && stock[item] > 0) {
       total += prices[item];
-
-      // Bonus: decrease stock by 1
       stock[item]--;
     }
   }
@@ -55,10 +52,9 @@ function myBill() {
 console.log("Total is:", myBill());
 console.log(stock);
 
-
 // Exercise 3: changeEnough
 function changeEnough(itemPrice, amountOfChange) {
-  const coinValues = [0.25, 0.10, 0.05, 0.01];
+  const coinValues = [0.25, 0.1, 0.05, 0.01];
   let total = 0;
 
   for (let i = 0; i < amountOfChange.length; i++) {
@@ -68,40 +64,57 @@ function changeEnough(itemPrice, amountOfChange) {
   return total >= itemPrice;
 }
 
-console.log(changeEnough(4.25, [25, 20, 5, 0])); // true
-console.log(changeEnough(14.11, [2, 100, 0, 0])); // false
-console.log(changeEnough(0.75, [0, 0, 20, 5])); // true
-
+console.log(changeEnough(4.25, [25, 20, 5, 0]));
+console.log(changeEnough(14.11, [2, 100, 0, 0]));
+console.log(changeEnough(0.75, [0, 0, 20, 5]));
 
 // Exercise 4: Hotel Cost
-function hotelCost() {
-  let nights;
+function getInput(promptText, defaultValue) {
+  if (typeof prompt === "function") {
+    let value;
+    do {
+      value = prompt(promptText);
+    } while (value === null || value === "");
+    return value;
+  }
 
-  do {
-    nights = Number(prompt("How many nights would you like to stay?"));
-  } while (!Number.isInteger(nights) || nights <= 0);
+  return defaultValue;
+}
+
+function hotelCost(nights = 3) {
+  if (typeof prompt === "function") {
+    let enteredNights;
+    do {
+      enteredNights = Number(getInput("How many nights would you like to stay?", 3));
+    } while (!Number.isInteger(enteredNights) || enteredNights <= 0);
+    return enteredNights * 140;
+  }
 
   return nights * 140;
 }
 
-function planeRideCost() {
-  let destination;
-
-  do {
-    destination = prompt("What is your destination?");
-  } while (typeof destination !== "string" || destination.trim() === "");
+function planeRideCost(destination = "London") {
+  if (typeof prompt === "function") {
+    let enteredDestination;
+    do {
+      enteredDestination = getInput("What is your destination?", "London");
+    } while (typeof enteredDestination !== "string" || enteredDestination.trim() === "");
+    destination = enteredDestination;
+  }
 
   if (destination === "London") return 183;
   if (destination === "Paris") return 220;
   return 300;
 }
 
-function rentalCarCost() {
-  let days;
-
-  do {
-    days = Number(prompt("How many days would you like to rent a car?"));
-  } while (!Number.isInteger(days) || days <= 0);
+function rentalCarCost(days = 4) {
+  if (typeof prompt === "function") {
+    let enteredDays;
+    do {
+      enteredDays = Number(getInput("How many days would you like to rent a car?", 4));
+    } while (!Number.isInteger(enteredDays) || enteredDays <= 0);
+    days = enteredDays;
+  }
 
   let total = days * 40;
 
@@ -112,10 +125,10 @@ function rentalCarCost() {
   return total;
 }
 
-function totalVacationCost() {
-  const hotel = hotelCost();
-  const plane = planeRideCost();
-  const car = rentalCarCost();
+function totalVacationCost(hotelNights = 3, destination = "London", rentalDays = 4) {
+  const hotel = hotelCost(hotelNights);
+  const plane = planeRideCost(destination);
+  const car = rentalCarCost(rentalDays);
 
   const total = hotel + plane + car;
 
@@ -127,4 +140,5 @@ function totalVacationCost() {
   return total;
 }
 
+console.log("Running Vacation Cost example...");
 totalVacationCost();

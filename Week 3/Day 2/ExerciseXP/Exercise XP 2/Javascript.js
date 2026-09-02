@@ -104,6 +104,6 @@ if (typeof document !== "undefined") {
   });
 } else {
   console.log("Browser DOM is not available. Running in Node.js fallback mode.");
-  console.log("Updated users list: ['Steven', 'Richard', 'Steven', 'Sarah']");
-  console.log("Book list: Harry Potter written by J.K. Rowling, The Hobbit written by J.R.R. Tolkien");
+  console.log("Updated users list: ['Steven', 'Ian', 'Rosemary', 'Steven', 'Shallom', 'Lizz']");
+  console.log("Book list: Harry Potter written by S.N. Elvis, The Hobbit written by P.M. Nadia");
 }
