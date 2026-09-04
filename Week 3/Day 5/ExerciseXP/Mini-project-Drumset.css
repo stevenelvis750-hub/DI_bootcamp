@@ -1,0 +1,531 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #24105c 0%,
+            #0c0920 35%,
+            #03040b 75%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND EFFECTS
+========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    background: #7c3aed;
+
+    opacity: 0.12;
+
+    filter: blur(140px);
+
+    border-radius: 50%;
+
+    top: -150px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   MAIN STAGE
+========================= */
+
+.stage {
+    width: min(1100px, 92%);
+
+    margin: auto;
+
+    padding: 70px 0 40px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.intro {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.eyebrow {
+    color: #a78bfa;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: clamp(50px, 9vw, 100px);
+
+    letter-spacing: -4px;
+
+    line-height: 0.95;
+
+    text-shadow:
+        0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+h1 span {
+    color: #8b5cf6;
+}
+
+.subtitle {
+    color: #aaa;
+
+    font-size: 18px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    width: fit-content;
+
+    margin: 25px auto 0;
+
+    padding: 9px 18px;
+
+    border: 1px solid #28223e;
+
+    border-radius: 50px;
+
+    background: rgba(15, 10, 30, 0.7);
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 12px #22c55e;
+
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+
+/* =========================
+   DRUM KIT
+========================= */
+
+.drum-kit {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+/* =========================
+   DRUM PADS
+========================= */
+
+.pad {
+    height: 180px;
+
+    border: 1px solid #30294a;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151326,
+            #080812
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.12s,
+        box-shadow 0.12s,
+        border-color 0.12s;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.35);
+}
+
+.pad::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    top: -50px;
+    right: -40px;
+
+    opacity: 0.15;
+
+    filter: blur(15px);
+}
+
+.pad:hover {
+    transform: translateY(-6px);
+
+    border-color: #8b5cf6;
+
+    box-shadow:
+        0 15px 40px rgba(124,58,237,0.25);
+}
+
+.pad:active,
+.pad.playing {
+    transform:
+        scale(0.95)
+        translateY(3px);
+
+    border-color: white;
+
+    box-shadow:
+        0 0 30px rgba(139,92,246,0.7),
+        inset 0 0 30px rgba(139,92,246,0.15);
+}
+
+
+/* =========================
+   PAD COLORS
+========================= */
+
+.pad-kick::before {
+    background: #ff3366;
+}
+
+.pad-snare::before {
+    background: #ff9d00;
+}
+
+.pad-hihat::before {
+    background: #ffe600;
+}
+
+.pad-tom::before {
+    background: #00e5ff;
+}
+
+.pad-openhat::before {
+    background: #00ff99;
+}
+
+.pad-boom::before {
+    background: #a855f7;
+}
+
+.pad-clap::before {
+    background: #ec4899;
+}
+
+.pad-ride::before {
+    background: #3b82f6;
+}
+
+
+/* =========================
+   PAD TEXT
+========================= */
+
+.pad-key {
+    display: block;
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+.pad-name {
+    display: block;
+
+    color: #999;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 40px 0;
+}
+
+.control-button {
+    padding: 13px 22px;
+
+    border: 1px solid #382c5c;
+
+    border-radius: 9px;
+
+    background: #0d0b18;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.control-button:hover {
+    background: #7c3aed;
+
+    border-color: #a78bfa;
+
+    transform: translateY(-2px);
+}
+
+.control-button.active {
+    background: #7c3aed;
+
+    box-shadow:
+        0 0 25px rgba(124,58,237,0.5);
+}
+
+
+/* =========================
+   KEYBOARD GUIDE
+========================= */
+
+.hint {
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    margin-top: 20px;
+}
+
+.hint span {
+    color: #a78bfa;
+
+    font-weight: bold;
+}
+
+kbd {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    margin: 4px;
+
+    border-radius: 8px;
+
+    border: 1px solid #3b315b;
+
+    background: #11101b;
+
+    color: #ddd;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 4px 0 #252035;
+
+    transition: 0.1s;
+}
+
+kbd.active {
+    transform: translateY(4px);
+
+    box-shadow: none;
+
+    background: #7c3aed;
+
+    color: white;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 60px;
+
+    color: #555;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+    .stage {
+        padding-top: 40px;
+    }
+
+    .drum-kit {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .pad {
+        height: 150px;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .drum-kit {
+        grid-template-columns: 1fr;
+    }
+
+    .pad {
+        height: 130px;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+
+    .eyebrow {
+        font-size: 10px;
+    }
+
+}

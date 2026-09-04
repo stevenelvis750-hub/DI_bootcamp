@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Colouring Squares | Digital Art Studio</title>
+
+    <link rel="stylesheet" href="Mini-project-Colouring Game.css">
+    <script src="Mini-project-Colouring Game.js" defer></script>
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- HEADER -->
+
+        <header class="top">
+
+            <div class="brand">
+
+                <div class="logo">
+                    ✦
+                </div>
+
+                <div>
+                    <p class="eyebrow">DIGITAL ART STUDIO</p>
+
+                    <h1>
+                        Colouring
+                        <span>Squares</span>
+                    </h1>
+
+                    <p class="subtitle">
+                        Choose a colour. Make a little world.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="counter-box">
+                    <span class="counter-label">
+                        PAINTED
+                    </span>
+
+                    <strong id="counter">
+                        0 / 400
+                    </strong>
+                </div>
+
+                <button
+                    id="undo"
+                    class="action-button"
+                    type="button">
+                    ↶ Undo
+                </button>
+
+                <button
+                    id="clear"
+                    class="action-button danger"
+                    type="button">
+                    ✕ Clear
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- TOOLBAR -->
+
+        <section class="toolbar">
+
+            <div class="tool-section">
+
+                <span class="toolbar-title">
+                    🎨 COLORS
+                </span>
+
+                <div class="palette">
+
+                    <button
+                        class="swatch selected"
+                        type="button"
+                        data-color="#ff4d6d"
+                        style="background:#ff4d6d"
+                        aria-label="Pink">
+                    </button>
+
+                    <button
+                        class="swatch"
+                        type="button"
+                        data-color="#ff8a3d"
+                        style="background:#ff8a3d"
+                        aria-label="Orange">
+                    </button>
+
+                    <button
+                        class="swatch"
+                        type="button"
+                        data-color="#ffd166"
+                        style="background:#ffd166"
+                        aria-label="Yellow">
+                    </button>
+
+                    <button
+                        class="swatch"
+                        type="button"
+                        data-color="#06d6a0"
+                        style="background:#06d6a0"
+                        aria-label="Green">
+                    </button>
+
+                    <button
+                        class="swatch"
+                        type="button"
+                        data-color="#00b4d8"
+                        style="background:#00b4d8"
+                        aria-label="Cyan">
+                    </button>
+
+                    <button
+                        class="swatch"
+                        type="button"
+                        data-color="#4361ee"
+                        style="background:#4361ee"
+                        aria-label="Blue">
+                    </button>
+
+                    <button
+                        class="swatch"
+                        type="button"
+                        data-color="#8338ec"
+                        style="background:#8338ec"
+                        aria-label="Purple">
+                    </button>
+
+                    <button
+                        class="swatch"
+                        type="button"
+                        data-color="#ff70a6"
+                        style="background:#ff70a6"
+                        aria-label="Hot pink">
+                    </button>
+
+                    <button
+                        class="swatch"
+                        type="button"
+                        data-color="#ffffff"
+                        style="background:#ffffff"
+                        aria-label="White">
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="tool-section">
+
+                <span class="toolbar-title">
+                    🛠 TOOLS
+                </span>
+
+                <button
+                    id="eraser"
+                    class="tool-button"
+                    type="button">
+
+                    🧽 Eraser
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CANVAS -->
+
+        <section class="canvas-area">
+
+            <div class="canvas-header">
+
+                <span>
+                    ✨ YOUR CANVAS
+                </span>
+
+                <span id="current-color">
+                    ● Pink
+                </span>
+
+            </div>
+
+
+            <div
+                class="canvas-wrap"
+                aria-label="Colouring canvas">
+
+                <div id="canvas"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HINT -->
+
+        <div class="hint">
+
+            <span>💡 TIP</span>
+
+            Click or drag across the squares to paint.
+
+            <div class="keys">
+
+                <kbd>CLICK</kbd>
+                <kbd>DRAG</kbd>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <span>
+                Made with ✦ creativity
+            </span>
+
+            <span>
+                Colouring Squares
+            </span>
+
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

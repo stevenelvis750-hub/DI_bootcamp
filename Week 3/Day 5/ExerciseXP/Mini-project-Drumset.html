@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pulse Room | Drumset</title>
+
+    <link rel="stylesheet" href="Mini-project-Drumset.css">
+    <script src="Mini-project-Drumset.js" defer></script>
+</head>
+
+<body>
+
+    <main class="stage">
+
+        <!-- HEADER -->
+
+        <header class="intro">
+
+            <p class="eyebrow">⚡ INTERACTIVE RHYTHM LAB</p>
+
+            <h1>
+                PULSE <span>ROOM</span>
+            </h1>
+
+            <p class="subtitle">
+                Build a beat with your hands or your keyboard.
+            </p>
+
+            <div class="status" aria-live="polite">
+                <span class="status-dot"></span>
+                <span id="last-hit">Ready when you are...</span>
+            </div>
+
+        </header>
+
+
+        <!-- DRUM KIT -->
+
+        <section class="drum-kit" aria-label="Drum pads">
+
+            <button
+                class="pad pad-kick"
+                type="button"
+                data-key="a"
+                data-sound="kick">
+
+                <span class="pad-key">A</span>
+                <span class="pad-name">KICK</span>
+
+            </button>
+
+
+            <button
+                class="pad pad-snare"
+                type="button"
+                data-key="s"
+                data-sound="snare">
+
+                <span class="pad-key">S</span>
+                <span class="pad-name">SNARE</span>
+
+            </button>
+
+
+            <button
+                class="pad pad-hihat"
+                type="button"
+                data-key="d"
+                data-sound="hihat">
+
+                <span class="pad-key">D</span>
+                <span class="pad-name">HI-HAT</span>
+
+            </button>
+
+
+            <button
+                class="pad pad-tom"
+                type="button"
+                data-key="f"
+                data-sound="tom">
+
+                <span class="pad-key">F</span>
+                <span class="pad-name">TOM</span>
+
+            </button>
+
+
+            <button
+                class="pad pad-openhat"
+                type="button"
+                data-key="j"
+                data-sound="openhat">
+
+                <span class="pad-key">J</span>
+                <span class="pad-name">OPEN HAT</span>
+
+            </button>
+
+
+            <button
+                class="pad pad-boom"
+                type="button"
+                data-key="k"
+                data-sound="boom">
+
+                <span class="pad-key">K</span>
+                <span class="pad-name">BOOM</span>
+
+            </button>
+
+
+            <button
+                class="pad pad-clap"
+                type="button"
+                data-key="l"
+                data-sound="clap">
+
+                <span class="pad-key">L</span>
+                <span class="pad-name">CLAP</span>
+
+            </button>
+
+
+            <button
+                class="pad pad-ride"
+                type="button"
+                data-key=";"
+                data-sound="ride">
+
+                <span class="pad-key">;</span>
+                <span class="pad-name">RIDE</span>
+
+            </button>
+
+        </section>
+
+
+        <!-- CONTROLS -->
+
+        <section class="controls">
+
+            <button id="beatButton" class="control-button">
+                ▶ PLAY BEAT
+            </button>
+
+            <button id="stopButton" class="control-button">
+                ■ STOP
+            </button>
+
+            <button id="clearButton" class="control-button">
+                ↻ CLEAR
+            </button>
+
+        </section>
+
+
+        <!-- KEYBOARD GUIDE -->
+
+        <p class="hint">
+
+            <span>PLAY WITH YOUR KEYBOARD</span>
+
+            <br><br>
+
+            <kbd>A</kbd>
+            <kbd>S</kbd>
+            <kbd>D</kbd>
+            <kbd>F</kbd>
+            <kbd>J</kbd>
+            <kbd>K</kbd>
+            <kbd>L</kbd>
+            <kbd>;</kbd>
+
+        </p>
+
+
+        <footer>
+            <p>🎧 Turn up the volume &nbsp; • &nbsp; Feel the pulse</p>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
