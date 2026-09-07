@@ -1,0 +1,77 @@
+// Exercise 1: Menu
+const menu = [
+	{
+		type: "starter",
+		name: "Houmous with Pita"
+	},
+	{
+		type: "starter",
+		name: "Vegetable Soup with Houmous peas"
+	},
+	{
+		type: "dessert",
+		name: "Chocolate Cake"
+	}
+];
+
+const hasDessert = menu.some((course) => course.type === "dessert")
+	? "There is at least one dessert."
+	: "There is no dessert.";
+
+const areAllStarters = menu.every((course) => course.type === "starter");
+
+if (!menu.some((course) => course.type === "main course")) {
+	menu.push({
+		type: "main course",
+		name: "Vegetable Lasagna"
+	});
+}
+
+const vegetarian = ["vegetable", "houmous", "eggs", "vanilla", "potatoes"];
+
+menu.forEach((course) => {
+	course.vegetarian = vegetarian.some((ingredient) =>
+		course.name.toLowerCase().includes(ingredient)
+	);
+});
+
+console.log(hasDessert);
+console.log("Are all courses starters?", areAllStarters);
+console.log("Menu:", menu);
+
+// Exercise 2: Chop into chunks
+function string_chop(string, chunkLength) {
+	if (chunkLength <= 0) {
+		return [];
+	}
+
+	const chunks = [];
+	for (let index = 0; index < string.length; index += chunkLength) {
+		chunks.push(string.slice(index, index + chunkLength));
+	}
+	return chunks;
+}
+
+console.log(string_chop("developers", 2));
+
+// Exercise 3: You said string?
+function search_word(string, word) {
+	const matches = string.match(new RegExp(word, "g"));
+	const count = matches ? matches.length : 0;
+	return `'${word}' was found ${count} times.`;
+}
+
+console.log(search_word("The quick brown fox", "fox"));
+
+// Exercise 4: Reverse Array
+function reverseArray(array) {
+	for (let left = 0, right = array.length - 1; left < right; left++, right--) {
+		[array[left], array[right]] = [array[right], array[left]];
+	}
+	return array;
+}
+
+console.log(reverseArray([1, 2, 3, 4, 5]));
+console.log(reverseArray([1, 2]));
+console.log(reverseArray([]));
+console.log(reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
