@@ -1,0 +1,54 @@
+:root {
+  --ink: #202a2a;
+  --muted: #68736e;
+  --paper: #eef3ef;
+  --card: #fffefa;
+  --accent: #bb4d35;
+  --accent-dark: #893522;
+  --line: #d4ddd7;
+}
+
+* { box-sizing: border-box; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: linear-gradient(135deg, #eef3ef 0%, #d9e9e1 100%);
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.page-shell {
+  width: min(100% - 32px, 620px);
+  min-height: 100vh;
+  display: grid;
+  align-content: center;
+  margin: 0 auto;
+  padding: 48px 0;
+}
+.form-card, .result-card {
+  padding: clamp(28px, 7vw, 58px);
+  background: var(--card);
+  box-shadow: 0 22px 55px rgba(32, 42, 42, 0.12);
+}
+.eyebrow {
+  margin: 0 0 13px;
+  color: var(--accent);
+  font: 700 0.75rem/1.2 Arial, sans-serif;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+h1 { margin: 0; font-size: clamp(2.3rem, 8vw, 4.2rem); line-height: 0.98; font-weight: 400; }
+.intro { margin: 18px 0 30px; color: var(--muted); font-size: 1.05rem; }
+form { display: grid; gap: 21px; }
+.field-group { display: grid; gap: 8px; }
+label { color: var(--muted); font: 700 0.75rem Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; }
+input { width: 100%; padding: 14px 12px; color: var(--ink); background: #fff; border: 1px solid var(--line); outline: none; font: 1rem Georgia, 'Times New Roman', serif; }
+input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(187, 77, 53, 0.13); }
+button { justify-self: start; margin-top: 5px; padding: 13px 20px; color: #fff; background: var(--accent); border: 0; font: 700 0.82rem Arial, sans-serif; cursor: pointer; }
+button:hover { background: var(--accent-dark); }
+.result-card { min-height: 260px; }
+.result-card h1 { margin-bottom: 28px; }
+.detail { margin: 0; padding: 15px 0; border-top: 1px solid var(--line); font: 1.1rem Arial, sans-serif; }
+.detail strong { display: inline-block; width: 110px; color: var(--muted); font-size: 0.73rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.back-link { display: inline-block; margin-top: 20px; color: var(--accent-dark); font: 700 0.85rem Arial, sans-serif; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.error-message { margin: 0; color: var(--accent-dark); font: 1rem Arial, sans-serif; }

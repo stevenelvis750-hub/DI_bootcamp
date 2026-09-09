@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Form</title>
+  <link rel="stylesheet" href="ExerciseXP Gold.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="form-card" aria-labelledby="form-title">
+      <p class="eyebrow">Exercise 1</p>
+      <h1 id="form-title">Tell us about yourself</h1>
+      <p class="intro">Enter your details below to continue.</p>
+
+      <form action="ExerciseXP Gold Result.html" method="get">
+        <div class="field-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="given-name" required>
+        </div>
+
+        <div class="field-group">
+          <label for="lastname">Last name</label>
+          <input id="lastname" name="lastname" type="text" autocomplete="family-name" required>
+        </div>
+
+        <button type="submit">Submit details</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quote Generator</title>
+  <link rel="stylesheet" href="ExerciseXP-Random Quote Generator.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">A little perspective</p>
+      <h1>Random Quote Generator</h1>
+      <p class="intro">Find a thought worth carrying with you.</p>
+    </header>
+
+    <section class="quote-panel" aria-live="polite" aria-atomic="true">
+      <p id="quote-text">Press the button to draw a quote.</p>
+      <p id="quote-author">- Your collection</p>
+      <div class="quote-footer">
+        <p id="quote-meta" class="quote-meta"></p>
+        <button id="copy-quote" class="icon-button" type="button" title="Copy quote" aria-label="Copy quote">Copy</button>
+      </div>
+    </section>
+
+    <div class="primary-actions">
+      <button id="generate-quote" class="button button-primary" type="button">Generate Quote</button>
+      <span class="collection-count"><span id="collection-count">5</span> quotes in your collection</span>
+    </div>
+
+    <section class="tool-grid" aria-label="Quote tools">
+      <div class="tool-card">
+        <h2>Build the collection</h2>
+        <form id="add-quote-form" class="stacked-form">
+          <label for="new-quote">Quote</label>
+          <textarea id="new-quote" name="quote" rows="3" required></textarea>
+          <label for="new-author">Author</label>
+          <input id="new-author" name="author" type="text" required>
+          <button class="button button-secondary" type="submit">Add Quote</button>
+        </form>
+        <p id="add-message" class="form-message" role="status"></p>
+      </div>
+
+      <div class="tool-card">
+        <h2>Explore by author</h2>
+        <form id="filter-form" class="stacked-form">
+          <label for="author-filter">Author name</label>
+          <input id="author-filter" name="author" type="text" placeholder="e.g. Maya">
+          <button class="button button-secondary" type="submit">Find Quote</button>
+        </form>
+        <div class="navigation-actions">
+          <button id="previous-quote" class="button button-quiet" type="button" disabled>Previous</button>
+          <button id="next-quote" class="button button-quiet" type="button" disabled>Next</button>
+        </div>
+        <p id="filter-message" class="form-message" role="status"></p>
+      </div>
+    </section>
+
+    <section class="stats-panel" aria-label="Quote actions">
+      <button id="characters-with-spaces" class="stat-button" type="button">Characters (spaces)</button>
+      <button id="characters-without-spaces" class="stat-button" type="button">Characters (no spaces)</button>
+      <button id="word-count" class="stat-button" type="button">Words</button>
+      <button id="like-quote" class="stat-button like-button" type="button">Like <span id="like-count">0</span></button>
+      <button id="save-quote" class="stat-button" type="button">Save quote</button>
+    </section>
+
+    <p id="stat-output" class="stat-output" role="status"></p>
+  </main>
+  <script src="ExerciseXP-Random Quote Generator.js"></script>
+</body>
+</html>

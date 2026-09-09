@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Forms and JSON</title>
+  <link rel="stylesheet" href="Exercise XP.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <p class="eyebrow">JavaScript · Week 5</p>
+      <h1>Forms &amp; JSON</h1>
+      <p>Explore how browsers send form data and how JavaScript turns objects into JSON.</p>
+    </header>
+
+    <section class="exercise-grid" aria-label="HTML form exercises">
+      <article class="exercise-card">
+        <p class="step-label">Exercise 1</p>
+        <h2>Send with GET</h2>
+        <p class="card-copy">The submitted values appear in the page URL as query parameters.</p>
+        <form action="Exercise XP.html" method="get">
+          <label for="get-name">Name</label>
+          <input id="get-name" name="name" type="text" autocomplete="name" required>
+          <label for="get-message">Message</label>
+          <textarea id="get-message" name="message" rows="4" required></textarea>
+          <input class="submit-button" type="submit" value="Send">
+        </form>
+      </article>
+
+      <article class="exercise-card">
+        <p class="step-label">Exercise 2</p>
+        <h2>Send with POST</h2>
+        <p class="card-copy">The values are sent in the request body. Inspect the request in the Network tab.</p>
+        <form action="Exercise XP.html" method="post">
+          <label for="post-name">Name</label>
+          <input id="post-name" name="name" type="text" autocomplete="name" required>
+          <label for="post-message">Message</label>
+          <textarea id="post-message" name="message" rows="4" required></textarea>
+          <input class="submit-button" type="submit" value="Send">
+        </form>
+      </article>
+    </section>
+
+    <section id="get-result" class="result-section" aria-live="polite">
+      <p class="step-label">GET response</p>
+      <h2>Sent data</h2>
+      <p id="result-placeholder" class="muted">Submit the GET form to see its query-string data here.</p>
+    </section>
+
+    <section class="json-section">
+      <div>
+        <p class="step-label">Exercise 3</p>
+        <h2>JSON Mario</h2>
+        <p class="card-copy">Nested objects remain nested when the JavaScript object is converted to JSON.</p>
+      </div>
+      <div class="json-output-grid">
+        <div>
+          <h3>Compact JSON</h3>
+          <pre id="compact-json"></pre>
+        </div>
+        <div>
+          <h3>Pretty JSON</h3>
+          <pre id="pretty-json"></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="Exercise XP.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Form</title>
+  <link rel="stylesheet" href="Daily Challenge-HTML Form.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="form-card" aria-labelledby="page-title">
+      <p class="eyebrow">Daily challenge</p>
+      <h1 id="page-title">Tell us about yourself</h1>
+      <form id="person-form">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required>
+
+        <label for="last-name">Last name</label>
+        <input id="last-name" name="lastName" type="text" required>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <section class="output-card" aria-labelledby="output-title" aria-live="polite">
+      <h2 id="output-title">Submitted data</h2>
+      <div id="json-output"></div>
+    </section>
+  </main>
+  <script src="Daily Challenge-HTML Form.js"></script>
+</body>
+</html>
