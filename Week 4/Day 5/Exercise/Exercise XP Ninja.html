@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Giphy Search</title>
+	<style>
+		body { font-family: Arial, sans-serif; margin: 2rem; }
+		form { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+		input, button { font: inherit; padding: 0.5rem; }
+		#gifs-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+		#gifs-container img { width: 100%; height: 220px; object-fit: cover; }
+	</style>
+</head>
+<body>
+	<h1>Giphy Search</h1>
+	<form id="search-form">
+		<label for="search-input">GIF category</label>
+		<input id="search-input" type="search" placeholder="e.g. cats" required>
+		<button type="submit">Search</button>
+	</form>
+	<button id="delete-gifs" type="button">Delete all GIFs</button>
+	<p id="status-message" role="status"></p>
+	<div id="gifs-container"></div>
+	<script src="Exercise XP Ninja.js"></script>
+</body>
+</html>
