@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertly | Currency Converter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="currency-converter.css">
+  <script src="Daily Challenge-Currency Converter.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="currency-converter.html"><span class="brand-icon">✦</span><span>CONVERTLY / AI</span></a>
+      <span class="live-status"><span></span> NEURAL RATE LINK</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">MONEY / INTELLIGENCE</p>
+      <h1>Ask the rate<br><em>engine.</em></h1>
+      <p>Tell the converter what you need. The signal does the math.</p>
+    </section>
+
+    <section class="converter-card" aria-labelledby="converter-title">
+      <div class="card-topline"><span id="converter-title">AI CONVERSION DESK</span><span><i class="signal-dot"></i> ENGINE READY</span></div>
+      <div class="ai-visual" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="ai-core">✦</div><span class="node node-one"></span><span class="node node-two"></span><span class="node node-three"></span><span class="ai-caption">LIVE<br>INFERENCE</span></div>
+      <form id="converter-form">
+        <div class="amount-field">
+          <label for="amount">AMOUNT</label>
+          <input id="amount" name="amount" type="number" min="0" step="any" value="1" inputmode="decimal" required>
+        </div>
+        <div class="currency-row">
+          <label class="currency-field" for="from-currency">FROM<select id="from-currency" name="fromCurrency" disabled required><option>Loading currencies...</option></select></label>
+          <button class="swap-button" id="swap" type="button" aria-label="Swap currencies" title="Swap currencies" disabled>⇄</button>
+          <label class="currency-field" for="to-currency">TO<select id="to-currency" name="toCurrency" disabled required><option>Loading currencies...</option></select></label>
+        </div>
+        <button class="convert-button" type="submit" disabled><span>↗</span> Convert amount</button>
+      </form>
+      <div class="result" id="result" aria-live="polite"><span class="result-label">AI OUTPUT</span><strong id="result-value">--</strong><span id="rate-note">Waiting for the rate signal...</span></div>
+      <p class="message" id="message" role="alert"></p>
+    </section>
+
+    <footer><span>CONVERTLY / 2026</span><span>AI RATE ENGINE · EXCHANGE RATE API</span></footer>
+  </main>
+</body>
+</html>

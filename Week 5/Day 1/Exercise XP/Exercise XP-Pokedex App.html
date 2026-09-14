@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pokédex Adventure</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="Exercise Xp-Pokedex App.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <div class="sky-glow"></div>
+    <div class="cloud cloud-one"></div>
+    <div class="cloud cloud-two"></div>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="pokedex-shell">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="topbar">
+
+            <div class="brand">
+
+                <div class="pokeball">
+                    <div class="pokeball-center"></div>
+                </div>
+
+                <div class="brand-text">
+                    <h3>POKÉDEX</h3>
+                    <span>FIELD DATABASE</span>
+                </div>
+
+            </div>
+
+
+            <div class="live-status">
+
+                <span class="live-dot"></span>
+
+                <span>LIVE DATABASE</span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <div class="guide">
+                    <span></span>
+                    FIELD GUIDE / 001
+                </div>
+
+
+                <h1>
+                    Meet your next
+                    <strong>discovery.</strong>
+                </h1>
+
+
+                <p>
+                    Explore Pokémon from across the world.
+                    Discover their types, size, and unique identity.
+                </p>
+
+
+                <div class="pokeball-line">
+
+                    <div class="small-ball">
+                        <span></span>
+                    </div>
+
+                    <div></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-badge">
+
+                <span>EXPLORE</span>
+
+                <strong>POKÉMON!</strong>
+
+                <small>YOUR ADVENTURE STARTS HERE</small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= POKEMON CARD ================= -->
+
+        <section class="pokemon-card">
+
+
+            <!-- ================= IMAGE SIDE ================= -->
+
+            <div class="pokemon-visual">
+
+
+                <div class="visual-top">
+
+                    <span>SPECIMEN</span>
+
+                    <strong id="visual-number">
+                        001
+                    </strong>
+
+                </div>
+
+
+                <!-- Scanner -->
+
+                <div class="scanner scanner-one"></div>
+
+                <div class="scanner scanner-two"></div>
+
+
+                <!-- Scan line -->
+
+                <div class="scan-line"></div>
+
+
+                <!-- Loading -->
+
+                <div
+                    class="loading"
+                    id="loading"
+                >
+
+                    <div class="loader"></div>
+
+                    FETCHING POKÉMON
+
+                </div>
+
+
+                <!-- Pokemon -->
+
+                <img
+                    id="pokemon-image"
+                    src=""
+                    alt=""
+                    hidden
+                >
+
+
+                <div class="pokemon-shadow"></div>
+
+
+                <!-- Floating particles -->
+
+                <span class="particle p1"></span>
+                <span class="particle p2"></span>
+                <span class="particle p3"></span>
+                <span class="particle p4"></span>
+
+
+                <!-- Pokemon number -->
+
+                <div class="pokemon-number-card">
+
+                    <div class="mini-ball">
+                        <span></span>
+                    </div>
+
+                    <div>
+
+                        <small>POKÉMON</small>
+
+                        <strong id="pokemon-id">
+                            #001
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= INFO SIDE ================= -->
+
+            <div class="pokemon-info">
+
+
+                <div class="profile-label">
+
+                    <span>POKÉMON PROFILE</span>
+
+                    <i></i>
+
+                </div>
+
+
+                <h2 id="pokemon-name">
+                    Bulbasaur
+                </h2>
+
+
+                <!-- TYPES -->
+
+                <div
+                    class="types"
+                    id="pokemon-types"
+                ></div>
+
+
+                <!-- Description -->
+
+                <p
+                    class="description"
+                    id="pokemon-description"
+                >
+                    Discover everything about this Pokémon
+                    and learn more about its unique abilities.
+                </p>
+
+
+
+                <!-- Stats -->
+
+                <div class="stats">
+
+
+                    <div class="stat">
+
+                        <div class="stat-symbol">
+                            ↕
+                        </div>
+
+                        <div>
+
+                            <small>HEIGHT</small>
+
+                            <strong id="pokemon-height">
+                                0.7 m
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="stat">
+
+                        <div class="stat-symbol">
+                            ◆
+                        </div>
+
+                        <div>
+
+                            <small>WEIGHT</small>
+
+                            <strong id="pokemon-weight">
+                                -- kg
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Decorative Pokeball -->
+
+                <div class="info-ball">
+
+                    <div></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MESSAGE ================= -->
+
+        <div
+            class="message"
+            id="message"
+        ></div>
+
+
+
+        <!-- ================= CONTROLS ================= -->
+
+        <div class="controls">
+
+
+            <button
+                id="previous"
+                type="button"
+            >
+
+                <span>←</span>
+
+            </button>
+
+
+            <button
+                id="random"
+                class="random-button"
+                type="button"
+            >
+
+                <span class="star">✦</span>
+
+                SURPRISE ME
+
+            </button>
+
+
+            <button
+                id="next"
+                type="button"
+            >
+
+                <span>→</span>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- ================= NAVIGATION ================= -->
+
+        <div class="navigation">
+
+            <span>PREVIOUS</span>
+
+            <div class="dots">
+
+                <i class="active"></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+
+            </div>
+
+            <span>NEXT</span>
+
+        </div>
+
+
+        <p class="hint">
+            ← Use the arrows to browse the Pokémon index →
+        </p>
+
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <span>POKÉDEX ADVENTURE</span>
+
+            <span>POWERED BY POKÉAPI</span>
+
+            <span>BUILD 2026</span>
+
+        </footer>
+
+
+    </main>
+
+</body>
+
+</html>

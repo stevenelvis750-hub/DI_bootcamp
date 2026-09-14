@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Wars Character Database</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="star-wars.css">
+  <script src="Exercise XP-Star Wars Web App using AJAX API.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <div class="brand"><span class="brand-symbol">✦</span><span>ARCHIVE / 1977</span></div>
+      <span class="archive-status"><span class="status-dot"></span> TRANSMISSION ONLINE</span>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">GALACTIC PERSONNEL FILES</p>
+      <h1>Star Wars<br><em>Archive.</em></h1>
+      <p class="hero-copy">Randomly surface a character from across the galaxy.</p>
+    </section>
+
+    <section class="character-panel" aria-live="polite">
+      <div class="panel-heading">
+        <span>CHARACTER RECORD</span>
+        <span id="record-number">FILE // ---</span>
+      </div>
+      <div class="panel-body">
+        <div class="portrait">
+          <span id="portrait-symbol" aria-hidden="true">✦</span>
+          <img id="portrait-image" alt="" hidden>
+          <span class="portrait-label">VISUAL RECORD</span>
+        </div>
+        <div class="character-content">
+          <p class="loading" id="loading" hidden><i class="fa-solid fa-spinner fa-spin"></i> Retrieving transmission...</p>
+          <p class="error" id="error" role="alert"></p>
+          <h2 id="character-name">Awaiting subject</h2>
+          <div class="rule"></div>
+          <dl class="facts">
+            <div><dt>HEIGHT</dt><dd id="height">--</dd></div>
+            <div><dt>GENDER</dt><dd id="gender">--</dd></div>
+            <div><dt>BIRTH YEAR</dt><dd id="birth-year">--</dd></div>
+            <div><dt>AGE @ 0 ABY</dt><dd id="age">--</dd></div>
+            <div><dt>HOME WORLD</dt><dd id="home-world">--</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <button class="random-button" id="random-character" type="button"><span>↻</span> Retrieve random character</button>
+    <p class="hint">83 records indexed · press the button to open a file</p>
+  </main>
+</body>
+</html>

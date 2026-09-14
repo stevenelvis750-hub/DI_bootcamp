@@ -1,0 +1,2586 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+
+    --dark: #071522;
+
+    --dark-two: #0c2435;
+
+    --blue: #13d9ff;
+
+    --cyan: #48f5d0;
+
+    --green: #5eea73;
+
+    --pink: #ff557d;
+
+    --yellow: #ffe45b;
+
+    --white: #ffffff;
+
+    --soft-white: #d9edf5;
+
+    --muted: #8aa5b5;
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family: "Baloo 2", sans-serif;
+
+    color: var(--white);
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 220, 255, .18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(255, 80, 120, .15),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #06101c,
+            #092536 50%,
+            #06131e
+        );
+
+}
+
+
+/* =========================================
+   SPACE GRID
+========================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .12;
+
+    background-image:
+
+        linear-gradient(
+            rgba(50,220,255,.25) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(50,220,255,.25) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+
+    animation: gridMove 20s linear infinite;
+
+}
+
+
+/* =========================================
+   GLOW
+========================================= */
+
+.sky-glow {
+
+    position: fixed;
+
+    width: 500px;
+
+    height: 500px;
+
+    top: 20%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(0, 240, 255, .12),
+            transparent 65%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   CLOUDS
+========================================= */
+
+.cloud {
+
+    position: fixed;
+
+    width: 250px;
+
+    height: 80px;
+
+    border-radius: 100px;
+
+    background: rgba(80, 180, 210, .04);
+
+    filter: blur(8px);
+
+    pointer-events: none;
+
+}
+
+
+.cloud-one {
+
+    top: 15%;
+
+    left: -100px;
+
+    animation: cloudMove 20s linear infinite;
+
+}
+
+
+.cloud-two {
+
+    top: 60%;
+
+    right: -150px;
+
+    animation: cloudMoveReverse 25s linear infinite;
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.pokedex-shell {
+
+    width: min(
+        1150px,
+        calc(100% - 40px)
+    );
+
+    margin: auto;
+
+    padding: 25px 0 50px;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.topbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 5px 20px;
+
+    border-bottom: 2px solid rgba(
+        255,
+        255,
+        255,
+        .12
+    );
+
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+}
+
+
+.brand-text h3 {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 17px;
+
+    letter-spacing: .12em;
+
+}
+
+
+.brand-text span {
+
+    display: block;
+
+    color: var(--blue);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .14em;
+
+}
+
+
+/* =========================================
+   POKEBALL
+========================================= */
+
+.pokeball {
+
+    position: relative;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: 4px solid white;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #ff475f 0 45%,
+            #152433 45% 55%,
+            white 55%
+        );
+
+    box-shadow:
+
+        0 0 15px rgba(
+            255,
+            60,
+            90,
+            .6
+        );
+
+    animation: ballFloat 3s ease-in-out infinite;
+
+}
+
+
+.pokeball-center {
+
+    position: absolute;
+
+    width: 13px;
+
+    height: 13px;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 4px solid #142231;
+
+    border-radius: 50%;
+
+    background: white;
+
+}
+
+
+/* =========================================
+   LIVE
+========================================= */
+
+.live-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 8px 15px;
+
+    border: 1px solid rgba(
+        40,
+        230,
+        255,
+        .4
+    );
+
+    border-radius: 30px;
+
+    color: var(--cyan);
+
+    background: rgba(
+        0,
+        180,
+        220,
+        .07
+    );
+
+    box-shadow:
+
+        0 0 20px rgba(
+            0,
+            220,
+            255,
+            .08
+        );
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .08em;
+
+}
+
+
+.live-dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #45ff8b;
+
+    box-shadow:
+
+        0 0 8px #45ff8b,
+
+        0 0 18px #45ff8b;
+
+    animation: livePulse 1.5s infinite;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 70px 10px 50px;
+
+}
+
+
+.guide {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 15px;
+
+    color: var(--cyan);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: .13em;
+
+}
+
+
+.guide span {
+
+    width: 7px;
+
+    height: 20px;
+
+    border-radius: 5px;
+
+    background: var(--cyan);
+
+    box-shadow:
+
+        0 0 15px var(--cyan);
+
+}
+
+
+h1 {
+
+    max-width: 750px;
+
+    font-size: clamp(
+        50px,
+        8vw,
+        92px
+    );
+
+    line-height: .88;
+
+    letter-spacing: -.05em;
+
+    animation: heroAppear .8s ease;
+
+}
+
+
+h1 strong {
+
+    display: block;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #44e3bd,
+            #7af58d,
+            #eaff71
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    background-size: 200%;
+
+    animation: colorMove 4s ease infinite;
+
+}
+
+
+.hero-text p {
+
+    max-width: 500px;
+
+    margin-top: 25px;
+
+    color: var(--soft-white);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   HERO LINE
+========================================= */
+
+.pokeball-line {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+
+.pokeball-line > div:last-child {
+
+    width: 120px;
+
+    height: 4px;
+
+    border-radius: 10px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--pink),
+            transparent
+        );
+
+}
+
+
+.small-ball {
+
+    position: relative;
+
+    width: 20px;
+
+    height: 20px;
+
+    border: 2px solid white;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            #ff4d63 0 45%,
+            white 45%
+        );
+
+}
+
+
+.small-ball span {
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(
+        -50%,
+        -50%
+    );
+
+    border: 2px solid #071522;
+
+    border-radius: 50%;
+
+    background: white;
+
+}
+
+
+/* =========================================
+   HERO BADGE
+========================================= */
+
+.hero-badge {
+
+    flex-shrink: 0;
+
+    width: 150px;
+
+    height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border: 2px solid var(--cyan);
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(
+                50,
+                240,
+                210,
+                .14
+            ),
+            rgba(
+                0,
+                0,
+                0,
+                .15
+            )
+        );
+
+    box-shadow:
+
+        0 0 35px rgba(
+            0,
+            255,
+            220,
+            .12
+        ),
+
+        inset 0 0 30px rgba(
+            0,
+            255,
+            220,
+            .08
+        );
+
+    transform: rotate(7deg);
+
+    animation: badgeFloat 4s ease-in-out infinite;
+
+}
+
+
+.hero-badge span {
+
+    color: var(--yellow);
+
+    font-size: 9px;
+
+    letter-spacing: .15em;
+
+}
+
+
+.hero-badge strong {
+
+    color: white;
+
+    font-size: 21px;
+
+}
+
+
+.hero-badge small {
+
+    max-width: 90px;
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 5px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   MAIN POKEMON CARD
+========================================= */
+
+.pokemon-card {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1.08fr
+        .92fr;
+
+    min-height: 530px;
+
+    overflow: hidden;
+
+    border: 2px solid rgba(
+        40,
+        230,
+        255,
+        .35
+    );
+
+    border-radius: 30px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(
+                13,
+                44,
+                61,
+                .96
+            ),
+            rgba(
+                5,
+                20,
+                31,
+                .98
+            )
+        );
+
+    box-shadow:
+
+        0 30px 70px rgba(
+            0,
+            0,
+            0,
+            .45
+        ),
+
+        0 0 40px rgba(
+            0,
+            210,
+            255,
+            .08
+        );
+
+    animation: cardAppear .8s ease;
+
+}
+
+
+/* =========================================
+   CARD TOP GLOW
+========================================= */
+
+.pokemon-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 3px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--cyan),
+            var(--pink),
+            transparent
+        );
+
+    animation: borderMove 4s linear infinite;
+
+}
+
+
+/* =========================================
+   VISUAL
+========================================= */
+
+.pokemon-visual {
+
+    position: relative;
+
+    min-height: 530px;
+
+    display: grid;
+
+    place-items: center;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(
+                75,
+                255,
+                195,
+                .2
+            ),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            145deg,
+            #0d3b3d,
+            #071b25
+        );
+
+}
+
+
+/* =========================================
+   VISUAL GRID
+========================================= */
+
+.pokemon-visual::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(
+                70,
+                240,
+                210,
+                .07
+            ) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(
+                70,
+                240,
+                210,
+                .07
+            ) 1px,
+            transparent 1px
+        );
+
+    background-size: 35px 35px;
+
+    -webkit-mask-image:
+
+        radial-gradient(
+            circle,
+            black,
+            transparent 75%
+        );
+
+    mask-image:
+
+        radial-gradient(
+            circle,
+            black,
+            transparent 75%
+        );
+
+}
+
+
+/* =========================================
+   VISUAL HEADER
+========================================= */
+
+.visual-top {
+
+    position: absolute;
+
+    top: 22px;
+
+    left: 25px;
+
+    right: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: rgba(
+        150,
+        255,
+        220,
+        .7
+    );
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .15em;
+
+    z-index: 10;
+
+}
+
+
+/* =========================================
+   SCANNERS
+========================================= */
+
+.scanner {
+
+    position: absolute;
+
+    border: 1px solid rgba(
+        80,
+        255,
+        210,
+        .18
+    );
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+}
+
+
+.scanner-one {
+
+    width: 380px;
+
+    height: 380px;
+
+    animation:
+        rotateScanner 15s linear infinite;
+
+}
+
+
+.scanner-two {
+
+    width: 260px;
+
+    height: 260px;
+
+    border-style: dashed;
+
+    animation:
+        rotateScannerReverse 10s linear infinite;
+
+}
+
+
+/* =========================================
+   SCAN LINE
+========================================= */
+
+.scan-line {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 2px;
+
+    top: 0;
+
+    background: var(--cyan);
+
+    box-shadow:
+
+        0 0 10px var(--cyan),
+
+        0 0 30px var(--cyan);
+
+    opacity: .45;
+
+    z-index: 6;
+
+    animation: scanning 4s linear infinite;
+
+}
+
+
+/* =========================================
+   POKEMON
+========================================= */
+
+#pokemon-image {
+
+    position: relative;
+
+    z-index: 8;
+
+    width: min(
+        75%,
+        390px
+    );
+
+    object-fit: contain;
+
+    filter:
+
+        drop-shadow(
+            0 30px 18px rgba(
+                0,
+                0,
+                0,
+                .5
+            )
+        )
+
+        drop-shadow(
+            0 0 25px rgba(
+                100,
+                255,
+                190,
+                .18
+            )
+        );
+
+    animation:
+
+        pokemonFloat 4s ease-in-out infinite,
+
+        pokemonAppear .6s ease;
+
+}
+
+
+/* =========================================
+   SHADOW
+========================================= */
+
+.pokemon-shadow {
+
+    position: absolute;
+
+    bottom: 60px;
+
+    width: 40%;
+
+    height: 22px;
+
+    border-radius: 50%;
+
+    background: rgba(
+        0,
+        0,
+        0,
+        .5
+    );
+
+    filter: blur(12px);
+
+    animation: shadowMove 4s ease-in-out infinite;
+
+}
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+.particle {
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    box-shadow:
+
+        0 0 10px var(--cyan);
+
+}
+
+
+.p1 {
+
+    left: 15%;
+
+    top: 30%;
+
+    animation: particleFloat 4s infinite;
+
+}
+
+
+.p2 {
+
+    right: 20%;
+
+    top: 25%;
+
+    background: var(--yellow);
+
+    animation: particleFloat 5s infinite .5s;
+
+}
+
+
+.p3 {
+
+    left: 25%;
+
+    bottom: 25%;
+
+    background: var(--pink);
+
+    animation: particleFloat 6s infinite 1s;
+
+}
+
+
+.p4 {
+
+    right: 15%;
+
+    bottom: 30%;
+
+    animation: particleFloat 5s infinite 1.5s;
+
+}
+
+
+/* =========================================
+   POKEMON NUMBER CARD
+========================================= */
+
+.pokemon-number-card {
+
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    z-index: 12;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 18px;
+
+    border: 1px solid rgba(
+        40,
+        230,
+        255,
+        .35
+    );
+
+    border-radius: 15px;
+
+    background: rgba(
+        4,
+        21,
+        32,
+        .8
+    );
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+
+        0 10px 30px rgba(
+            0,
+            0,
+            0,
+            .3
+        );
+
+}
+
+
+/* =========================================
+   MINI BALL
+========================================= */
+
+.mini-ball {
+
+    position: relative;
+
+    width: 35px;
+
+    height: 35px;
+
+    border: 3px solid white;
+
+    border-radius: 50%;
+
+    background:
+
+        linear-gradient(
+            #ff4c60 0 45%,
+            white 45%
+        );
+
+}
+
+
+.mini-ball span {
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 10px;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border: 3px solid #132332;
+
+    border-radius: 50%;
+
+    background: white;
+
+}
+
+
+.pokemon-number-card small {
+
+    display: block;
+
+    color: var(--cyan);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: .1em;
+
+}
+
+
+.pokemon-number-card strong {
+
+    display: block;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================
+   INFO
+========================================= */
+
+.pokemon-info {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 55px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(
+                255,
+                255,
+                255,
+                .035
+            ),
+            transparent
+        );
+
+}
+
+
+/* =========================================
+   PROFILE LABEL
+========================================= */
+
+.profile-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+
+    color: var(--cyan);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    letter-spacing: .15em;
+
+}
+
+
+.profile-label i {
+
+    width: 45px;
+
+    height: 2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            transparent
+        );
+
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+h2 {
+
+    font-size: clamp(
+        48px,
+        6vw,
+        72px
+    );
+
+    line-height: .9;
+
+    text-transform: capitalize;
+
+    letter-spacing: -.05em;
+
+    color: white;
+
+    text-shadow:
+
+        0 10px 30px rgba(
+            0,
+            0,
+            0,
+            .4
+        );
+
+}
+
+
+/* =========================================
+   TYPES
+========================================= */
+
+.types {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin: 25px 0;
+
+}
+
+
+.type {
+
+    padding: 7px 14px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    color: white;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+    box-shadow:
+
+        0 5px 15px rgba(
+            0,
+            0,
+            0,
+            .2
+        );
+
+    animation: typeAppear .4s ease;
+
+    transition: .25s;
+
+}
+
+
+.type:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.05);
+
+}
+
+
+/* =========================================
+   TYPE COLORS
+========================================= */
+
+.type-normal {
+    background: #88877a;
+}
+
+.type-fire {
+    background: #ff563e;
+}
+
+.type-water {
+    background: #3487ee;
+}
+
+.type-electric {
+    background: #e5c52d;
+    color: #17200d;
+}
+
+.type-grass {
+    background: #48bd56;
+}
+
+.type-ice {
+    background: #51d6d1;
+}
+
+.type-fighting {
+    background: #bd453b;
+}
+
+.type-poison {
+    background: #a050bc;
+}
+
+.type-ground {
+    background: #b5863e;
+}
+
+.type-flying {
+    background: #796dcc;
+}
+
+.type-psychic {
+    background: #d74c82;
+}
+
+.type-bug {
+    background: #8bab32;
+}
+
+.type-rock {
+    background: #907344;
+}
+
+.type-ghost {
+    background: #705790;
+}
+
+.type-dragon {
+    background: #5541c6;
+}
+
+.type-dark {
+    background: #37363a;
+}
+
+.type-steel {
+    background: #6f8491;
+}
+
+.type-fairy {
+    background: #d56d9c;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.description {
+
+    max-width: 420px;
+
+    margin-bottom: 30px;
+
+    color: #91adba;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats {
+
+    display: flex;
+
+    gap: 12px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(
+        255,
+        255,
+        255,
+        .1
+    );
+
+}
+
+
+.stat {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 120px;
+
+}
+
+
+.stat-symbol {
+
+    display: grid;
+
+    place-items: center;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 10px;
+
+    color: var(--cyan);
+
+    background:
+
+        rgba(
+            50,
+            240,
+            210,
+            .1
+        );
+
+    border: 1px solid rgba(
+        50,
+        240,
+        210,
+        .2
+    );
+
+    font-size: 16px;
+
+}
+
+
+.stat small {
+
+    display: block;
+
+    color: #68808d;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: .1em;
+
+}
+
+
+.stat strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================
+   DECORATIVE BALL
+========================================= */
+
+.info-ball {
+
+    position: absolute;
+
+    right: -60px;
+
+    bottom: -60px;
+
+    width: 180px;
+
+    height: 180px;
+
+    border: 15px solid rgba(
+        30,
+        150,
+        180,
+        .07
+    );
+
+    border-radius: 50%;
+
+}
+
+
+.info-ball div {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 35px;
+
+    height: 35px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border: 8px solid rgba(
+        30,
+        150,
+        180,
+        .07
+    );
+
+    border-radius: 50%;
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    min-height: 20px;
+
+    margin-top: 25px;
+
+    color: var(--pink);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 17px;
+
+    margin-top: 5px;
+
+}
+
+
+.controls button {
+
+    width: 58px;
+
+    height: 58px;
+
+    border: 2px solid rgba(
+        40,
+        230,
+        255,
+        .5
+    );
+
+    border-radius: 50%;
+
+    color: white;
+
+    background: rgba(
+        10,
+        40,
+        55,
+        .7
+    );
+
+    cursor: pointer;
+
+    font-size: 24px;
+
+    transition: .25s;
+
+}
+
+
+.controls button:hover:not(:disabled) {
+
+    transform:
+        translateY(-5px)
+        scale(1.08);
+
+    color: var(--cyan);
+
+    border-color: var(--cyan);
+
+    box-shadow:
+
+        0 0 25px rgba(
+            0,
+            230,
+            255,
+            .25
+        );
+
+}
+
+
+.controls button:active:not(:disabled) {
+
+    transform: scale(.92);
+
+}
+
+
+.controls button:disabled {
+
+    opacity: .3;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =========================================
+   RANDOM BUTTON
+========================================= */
+
+.random-button {
+
+    width: 200px !important;
+
+    border: none !important;
+
+    border-radius: 14px !important;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ff426b,
+            #ff7354
+        ) !important;
+
+    box-shadow:
+
+        0 8px 25px rgba(
+            255,
+            65,
+            100,
+            .25
+        );
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 13px !important;
+
+    font-weight: 700;
+
+}
+
+
+.random-button:hover:not(:disabled) {
+
+    color: white !important;
+
+    box-shadow:
+
+        0 12px 35px rgba(
+            255,
+            65,
+            100,
+            .45
+        ) !important;
+
+}
+
+
+.star {
+
+    margin-right: 8px;
+
+    color: var(--yellow);
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 22px;
+
+    color: #607b89;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: .1em;
+
+}
+
+
+.dots {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+
+.dots i {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #29404c;
+
+}
+
+
+.dots i.active {
+
+    background: var(--pink);
+
+    box-shadow:
+
+        0 0 10px var(--pink);
+
+}
+
+
+.hint {
+
+    margin-top: 12px;
+
+    color: #59717d;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+
+    text-align: center;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 45px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid rgba(
+        255,
+        255,
+        255,
+        .08
+    );
+
+    color: #405866;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 7px;
+
+    letter-spacing: .1em;
+
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes heroAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+@keyframes pokemonAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.7)
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes pokemonFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-15px);
+
+    }
+
+}
+
+
+@keyframes shadowMove {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        opacity: .6;
+
+    }
+
+    50% {
+
+        transform: scale(.75);
+
+        opacity: .3;
+
+    }
+
+}
+
+
+@keyframes scanning {
+
+    from {
+
+        transform: translateY(-5px);
+
+    }
+
+    to {
+
+        transform: translateY(530px);
+
+    }
+
+}
+
+
+@keyframes rotateScanner {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes rotateScannerReverse {
+
+    from {
+
+        transform: rotate(360deg);
+
+    }
+
+    to {
+
+        transform: rotate(0deg);
+
+    }
+
+}
+
+
+@keyframes livePulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform: scale(.6);
+
+        opacity: .5;
+
+    }
+
+}
+
+
+@keyframes ballFloat {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-6px);
+
+    }
+
+}
+
+
+@keyframes badgeFloat {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(7deg)
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(2deg)
+            translateY(-12px);
+
+    }
+
+}
+
+
+@keyframes particleFloat {
+
+    0% {
+
+        transform:
+            translateY(20px)
+            scale(.5);
+
+        opacity: 0;
+
+    }
+
+    30% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(-100px)
+            scale(1.2);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+@keyframes typeAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(.7);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+@keyframes colorMove {
+
+    0% {
+
+        background-position: 0%;
+
+    }
+
+    50% {
+
+        background-position: 100%;
+
+    }
+
+    100% {
+
+        background-position: 0%;
+
+    }
+
+}
+
+
+@keyframes borderMove {
+
+    0% {
+
+        transform: translateX(-50%);
+
+    }
+
+    100% {
+
+        transform: translateX(50%);
+
+    }
+
+}
+
+
+@keyframes gridMove {
+
+    from {
+
+        transform: translateY(0);
+
+    }
+
+    to {
+
+        transform: translateY(50px);
+
+    }
+
+}
+
+
+@keyframes cloudMove {
+
+    from {
+
+        transform: translateX(0);
+
+    }
+
+    to {
+
+        transform: translateX(
+            120vw
+        );
+
+    }
+
+}
+
+
+@keyframes cloudMoveReverse {
+
+    from {
+
+        transform: translateX(0);
+
+    }
+
+    to {
+
+        transform: translateX(
+            -120vw
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 800px) {
+
+    .hero {
+
+        padding-top: 50px;
+
+    }
+
+    .hero-badge {
+
+        display: none;
+
+    }
+
+    .pokemon-card {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .pokemon-visual {
+
+        min-height: 400px;
+
+    }
+
+    .pokemon-info {
+
+        min-height: 400px;
+
+        padding: 45px 35px;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .pokedex-shell {
+
+        width:
+            calc(100% - 24px);
+
+    }
+
+
+    .topbar {
+
+        padding-top: 5px;
+
+    }
+
+
+    .brand-text h3 {
+
+        font-size: 13px;
+
+    }
+
+
+    .live-status {
+
+        padding: 7px 10px;
+
+        font-size: 6px;
+
+    }
+
+
+    .hero {
+
+        padding: 50px 5px 35px;
+
+    }
+
+
+    h1 {
+
+        font-size: 51px;
+
+    }
+
+
+    .hero-text p {
+
+        font-size: 13px;
+
+    }
+
+
+    .pokemon-card {
+
+        border-radius: 22px;
+
+    }
+
+
+    .pokemon-visual {
+
+        min-height: 350px;
+
+    }
+
+
+    .scanner-one {
+
+        width: 280px;
+
+        height: 280px;
+
+    }
+
+
+    .scanner-two {
+
+        width: 190px;
+
+        height: 190px;
+
+    }
+
+
+    #pokemon-image {
+
+        width: 78%;
+
+    }
+
+
+    .pokemon-number-card {
+
+        left: 15px;
+
+        bottom: 15px;
+
+    }
+
+
+    .pokemon-info {
+
+        padding: 38px 24px;
+
+    }
+
+
+    h2 {
+
+        font-size: 48px;
+
+    }
+
+
+    .description {
+
+        font-size: 12px;
+
+    }
+
+
+    .controls {
+
+        gap: 9px;
+
+    }
+
+
+    .controls button {
+
+        width: 48px;
+
+        height: 48px;
+
+    }
+
+
+    .random-button {
+
+        width: 150px !important;
+
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 8px;
+
+    }
+
+}
