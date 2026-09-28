@@ -1,0 +1,12 @@
+{
+  "name": "math-app",
+  "version": "1.0.0",
+  "description": "Custom math module with lodash exercise",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "lodash": "^4.18.1"
+  }
+}

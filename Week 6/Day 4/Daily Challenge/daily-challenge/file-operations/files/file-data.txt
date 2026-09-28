@@ -1,0 +1,1 @@
+This text file is read by the daily challenge file operations example.

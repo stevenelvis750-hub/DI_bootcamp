@@ -1,0 +1,10 @@
+{
+  "name": "person-average",
+  "version": "1.0.0",
+  "description": "ES module average-age exercise",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "type": "module"
+}

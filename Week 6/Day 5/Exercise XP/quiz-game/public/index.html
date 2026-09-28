@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#e7f26a">
+    <title>Quickfire | Node.js Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="/" aria-label="Quickfire home"><span class="wordmark-icon">Q</span> QUICKFIRE<span class="wordmark-period">.</span></a>
+      <div class="topbar-note"><span class="live-dot"></span> NODE.JS FIELD TEST</div>
+      <a class="topbar-link" href="#leaderboard">SCORES <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main class="layout">
+      <section class="intro-panel" id="intro-screen" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span>THE DEVELOPER'S</span> QUICKFIRE QUIZ</p>
+          <h1 id="intro-title">Think fast.<br><span>Ship smart.</span></h1>
+          <p class="intro-description">Six quick questions on Node.js, Express, and the web. Trust your instincts; the clock is already ticking.</p>
+          <button class="primary-button" id="start-button" type="button">Start the quiz <span aria-hidden="true">↗</span></button>
+          <div class="quiz-facts"><span>06 QUESTIONS</span><i></i><span>20 SEC EACH</span><i></i><span>NO SECOND TAKES</span></div>
+        </div>
+        <div class="intro-art" aria-hidden="true">
+          <div class="art-stamp">Q<br><span>06</span></div>
+          <div class="art-caption">A LITTLE PRESSURE<br>LOOKS GOOD ON YOU.</div>
+          <div class="art-line art-line-one"></div>
+          <div class="art-line art-line-two"></div>
+        </div>
+      </section>
+
+      <section class="quiz-panel" id="quiz-screen" aria-labelledby="question-title" hidden>
+        <div class="quiz-meta">
+          <div><p class="eyebrow">QUESTION <span id="question-count">01 / 06</span></p><p class="category-label" id="category-label">EXPRESS</p></div>
+          <div class="timer" id="timer" role="timer" aria-label="20 seconds remaining"><span id="timer-value">20</span><small>SEC</small></div>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="1"><span id="progress-fill"></span></div>
+        <h1 class="question-title" id="question-title"></h1>
+        <div class="answer-list" id="answer-list" role="group" aria-label="Answer choices"></div>
+        <div class="quiz-bottom">
+          <p class="selection-note" id="selection-note">SELECT ONE ANSWER</p>
+          <button class="primary-button submit-button" id="submit-button" type="button" disabled>Lock it in <span aria-hidden="true">↗</span></button>
+        </div>
+        <div class="feedback" id="feedback" aria-live="polite" hidden>
+          <div class="feedback-copy"><strong id="feedback-title"></strong><p id="feedback-detail"></p></div>
+          <button class="primary-button" id="next-button" type="button">Next question <span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+
+      <section class="results-panel" id="results-screen" aria-labelledby="results-title" hidden>
+        <p class="eyebrow">THAT'S A WRAP</p>
+        <h1 id="results-title">Run complete<span class="wordmark-period">.</span></h1>
+        <div class="result-score"><strong id="final-score">0</strong><span>/ 6<br>POINTS</span></div>
+        <p class="result-message" id="result-message"></p>
+        <form class="save-score" id="score-form">
+          <label for="player-name">ADD YOUR INITIALS TO THE BOARD</label>
+          <div class="save-row"><input id="player-name" name="player" maxlength="16" autocomplete="nickname" placeholder="Your name" required><button class="primary-button" type="submit">Save score <span aria-hidden="true">↗</span></button></div>
+          <p class="save-status" id="save-status" aria-live="polite"></p>
+        </form>
+        <button class="text-button" id="restart-button" type="button">Play again <span aria-hidden="true">↻</span></button>
+      </section>
+
+      <aside class="leaderboard" id="leaderboard" aria-labelledby="leaderboard-title">
+        <div class="leaderboard-heading"><div><p class="eyebrow">LOCAL HIGH SCORES</p><h2 id="leaderboard-title">The board</h2></div><span class="board-icon" aria-hidden="true">↗</span></div>
+        <ol class="score-list" id="score-list"></ol>
+        <p class="board-footnote">SAVED ON THIS DEVICE</p>
+      </aside>
+    </main>
+    <footer class="footer"><span>QUICKFIRE / NODE.JS EDITION</span><span>BUILT FOR CURIOUS MINDS <b>✳</b></span></footer>
+  </body>
+</html>

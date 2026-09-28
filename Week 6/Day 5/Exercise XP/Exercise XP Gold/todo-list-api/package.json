@@ -1,0 +1,8 @@
+{
+  "name": "todo-list-api",
+  "version": "1.0.0",
+  "description": "In-memory Express todo CRUD API",
+  "main": "app.js",
+  "scripts": { "start": "node app.js" },
+  "dependencies": { "express": "^5.1.0" }
+}

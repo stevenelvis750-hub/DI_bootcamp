@@ -1,0 +1,14 @@
+{
+  "name": "express-quiz-game",
+  "version": "1.0.0",
+  "description": "A timed Express and Node.js quiz game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

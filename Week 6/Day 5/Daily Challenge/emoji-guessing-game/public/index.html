@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f1f3c1">
+    <title>Emoji Guess | Daily Challenge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Emoji Guess home"><span class="brand-mark">:)</span><span>tiny<span class="brand-accent">clues</span></span></a>
+      <div class="top-note"><span class="status-dot"></span> DAILY CHALLENGE <span class="slash">/</span> EMOJI EDITION</div>
+      <a class="scores-link" href="#leaderboard">HIGH SCORES <span aria-hidden="true">↘</span></a>
+    </header>
+
+    <main class="page-grid">
+      <section class="game-panel" aria-labelledby="page-title">
+        <div class="game-topline"><span>READ THE ROOM. READ THE EMOJI.</span><span class="round-chip" id="round-chip">READY WHEN YOU ARE</span></div>
+
+        <section class="intro-screen" id="intro-screen">
+          <p class="eyebrow">A SMALL GAME OF BIG GUESSES</p>
+          <h1 id="page-title">What’s that<br><span>little thing?</span></h1>
+          <p class="intro-text">Ten emojis. Four possible names. One very observant brain. How many can you get right?</p>
+          <button class="start-button" id="start-button" type="button">Let’s play <span aria-hidden="true">→</span></button>
+          <div class="emoji-trail" aria-hidden="true"><span>🍄</span><span>🚀</span><span>🧁</span><span>🌈</span><span>🐢</span></div>
+        </section>
+
+        <section class="question-screen" id="question-screen" hidden>
+          <div class="question-meta"><span class="question-category">NAME THIS EMOJI</span><span class="score-counter">SCORE <strong id="score-value">0</strong></span></div>
+          <div class="emoji-stage"><span class="spark spark-a" aria-hidden="true">✳</span><span class="spark spark-b" aria-hidden="true">+</span><span class="main-emoji" id="emoji-display" role="img" aria-label="Emoji to guess"></span></div>
+          <p class="prompt-text" id="prompt-text">Pick the best match</p>
+          <form id="guess-form">
+            <fieldset class="options" id="options">
+              <legend class="sr-only">Choose the emoji name</legend>
+            </fieldset>
+            <div class="form-bottom"><span class="keyboard-note">ONE PICK. TRUST YOUR GUT.</span><button class="submit-button" id="submit-button" type="submit" disabled>Lock it in <span aria-hidden="true">↗</span></button></div>
+          </form>
+          <div class="feedback" id="feedback" aria-live="polite" hidden><div><strong id="feedback-title"></strong><p id="feedback-copy"></p></div><button class="next-button" id="next-button" type="button">Next emoji <span aria-hidden="true">→</span></button></div>
+        </section>
+
+        <section class="result-screen" id="result-screen" hidden>
+          <p class="eyebrow">THAT’S THE WHOLE PICTURE</p>
+          <h1 id="result-title">Nice spotting<span class="brand-accent">.</span></h1>
+          <div class="final-score"><strong id="final-score">0</strong><span>/ 10<br>GUESSES</span></div>
+          <p class="result-copy" id="result-copy"></p>
+          <form id="score-form" class="score-form">
+            <label for="player-name">PUT YOUR NAME ON THE BOARD</label>
+            <div class="name-row"><input id="player-name" name="name" maxlength="18" placeholder="Your name" autocomplete="nickname" required><button class="submit-button" type="submit">Save score <span aria-hidden="true">↗</span></button></div>
+            <p class="save-status" id="save-status" aria-live="polite"></p>
+          </form>
+          <button class="again-button" id="again-button" type="button">Play again <span aria-hidden="true">↻</span></button>
+        </section>
+      </section>
+
+      <aside class="side-column">
+        <section class="how-panel" aria-labelledby="how-title">
+          <p class="eyebrow">THE RULES ARE TINY</p>
+          <h2 id="how-title">How to play</h2>
+          <ol class="rules-list"><li><span>01</span> Look at the emoji.</li><li><span>02</span> Pick its name.</li><li><span>03</span> Collect your points.</li></ol>
+          <div class="rules-footer"><span>10 ROUNDS</span><span>NO TRICK QUESTIONS</span></div>
+        </section>
+        <section class="leaderboard" id="leaderboard" aria-labelledby="leaderboard-title">
+          <div class="leader-heading"><div><p class="eyebrow">THE SHARP-EYED</p><h2 id="leaderboard-title">Top guesses</h2></div><span class="leader-star" aria-hidden="true">✳</span></div>
+          <ol class="leader-list" id="leader-list"></ol>
+          <p class="leader-foot">TOP FIVE · SAVED FOR THIS SESSION</p>
+        </section>
+        <div class="side-doodle" aria-hidden="true"><span>✳</span><p>GOOD EYES.<br>GOOD VIBES.</p><span>✳</span></div>
+      </aside>
+    </main>
+
+    <footer class="footer"><span>TINY CLUES <b>©</b> EMOJI GUESSING CLUB</span><span>MADE FOR THE CURIOUS <b>✳</b></span></footer>
+  </body>
+</html>
