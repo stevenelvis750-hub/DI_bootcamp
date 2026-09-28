@@ -1,0 +1,12 @@
+{
+  "name": "week-7-express-router-exercises",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Express Router exercises for home, todos, and books",
+  "scripts": {
+    "start": "node \"Exercise XP\""
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

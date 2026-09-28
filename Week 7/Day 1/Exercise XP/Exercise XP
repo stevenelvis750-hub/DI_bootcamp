@@ -1,0 +1,144 @@
+const express = require('express');
+
+const app = express();
+const port = process.env.PORT || 3000;
+app.use(express.json());
+
+const homeRouter = express.Router();
+homeRouter.get('/', (req, res) => res.send('Welcome to the homepage.'));
+homeRouter.get('/about', (req, res) => res.send('About us'));
+
+const todosRouter = express.Router();
+const todos = [];
+let nextTodoId = 1;
+
+todosRouter.get('/', (req, res) => res.json(todos));
+
+todosRouter.post('/', (req, res) => {
+	const { title } = req.body;
+	if (typeof title !== 'string' || title.trim() === '') {
+		return res.status(400).json({ error: 'A non-empty title is required.' });
+	}
+
+	const todo = { id: nextTodoId++, title: title.trim(), completed: false };
+	todos.push(todo);
+	res.status(201).json(todo);
+});
+
+todosRouter.put('/:id', (req, res) => {
+	const id = Number(req.params.id);
+	if (!Number.isSafeInteger(id) || id < 1) {
+		return res.status(400).json({ error: 'To-do ID must be a positive integer.' });
+	}
+
+	const todo = todos.find((item) => item.id === id);
+	if (!todo) return res.status(404).json({ error: 'To-do item not found.' });
+
+	const { title, completed } = req.body;
+	if (
+		(title !== undefined && (typeof title !== 'string' || title.trim() === '')) ||
+		(completed !== undefined && typeof completed !== 'boolean') ||
+		(title === undefined && completed === undefined)
+	) {
+		return res.status(400).json({ error: 'Provide a non-empty title or a boolean completed value.' });
+	}
+
+	if (title !== undefined) todo.title = title.trim();
+	if (completed !== undefined) todo.completed = completed;
+	res.json(todo);
+});
+
+todosRouter.delete('/:id', (req, res) => {
+	const id = Number(req.params.id);
+	if (!Number.isSafeInteger(id) || id < 1) {
+		return res.status(400).json({ error: 'To-do ID must be a positive integer.' });
+	}
+
+	const index = todos.findIndex((item) => item.id === id);
+	if (index === -1) return res.status(404).json({ error: 'To-do item not found.' });
+	todos.splice(index, 1);
+	res.status(204).end();
+});
+
+const booksRouter = express.Router();
+const books = [];
+let nextBookId = 1;
+
+booksRouter.get('/', (req, res) => res.json(books));
+
+booksRouter.get('/:id', (req, res) => {
+	const id = Number(req.params.id);
+	if (!Number.isSafeInteger(id) || id < 1) {
+		return res.status(400).json({ error: 'Book ID must be a positive integer.' });
+	}
+
+	const book = books.find((item) => item.id === id);
+	if (!book) return res.status(404).json({ error: 'Book not found.' });
+	res.json(book);
+});
+
+booksRouter.post('/', (req, res) => {
+	const { title, author } = req.body;
+	if (
+		typeof title !== 'string' || title.trim() === '' ||
+		typeof author !== 'string' || author.trim() === ''
+	) {
+		return res.status(400).json({ error: 'Non-empty title and author are required.' });
+	}
+
+	const book = { id: nextBookId++, title: title.trim(), author: author.trim() };
+	books.push(book);
+	res.status(201).json(book);
+});
+
+booksRouter.put('/:id', (req, res) => {
+	const id = Number(req.params.id);
+	if (!Number.isSafeInteger(id) || id < 1) {
+		return res.status(400).json({ error: 'Book ID must be a positive integer.' });
+	}
+
+	const book = books.find((item) => item.id === id);
+	if (!book) return res.status(404).json({ error: 'Book not found.' });
+
+	const { title, author } = req.body;
+	if (
+		(title !== undefined && (typeof title !== 'string' || title.trim() === '')) ||
+		(author !== undefined && (typeof author !== 'string' || author.trim() === '')) ||
+		(title === undefined && author === undefined)
+	) {
+		return res.status(400).json({ error: 'Provide a non-empty title or author.' });
+	}
+
+	if (title !== undefined) book.title = title.trim();
+	if (author !== undefined) book.author = author.trim();
+	res.json(book);
+});
+
+booksRouter.delete('/:id', (req, res) => {
+	const id = Number(req.params.id);
+	if (!Number.isSafeInteger(id) || id < 1) {
+		return res.status(400).json({ error: 'Book ID must be a positive integer.' });
+	}
+
+	const index = books.findIndex((item) => item.id === id);
+	if (index === -1) return res.status(404).json({ error: 'Book not found.' });
+	books.splice(index, 1);
+	res.status(204).end();
+});
+
+app.use('/', homeRouter);
+app.use('/todos', todosRouter);
+app.use('/books', booksRouter);
+
+app.use((error, req, res, next) => {
+	if (error.type === 'entity.parse.failed') {
+		return res.status(400).json({ error: 'Request body must contain valid JSON.' });
+	}
+
+	console.error(error);
+	res.status(500).json({ error: 'Internal server error.' });
+});
+
+app.listen(port, () => {
+	console.log(`Server listening at http://localhost:${port}`);
+});
