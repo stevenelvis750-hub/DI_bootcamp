@@ -1,0 +1,14 @@
+{
+  "name": "user-management-api",
+  "version": "1.0.0",
+  "description": "Express user registration and login API backed by PostgreSQL",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}

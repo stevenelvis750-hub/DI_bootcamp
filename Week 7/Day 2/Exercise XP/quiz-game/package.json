@@ -1,0 +1,14 @@
+{
+  "name": "postgres-quiz-game",
+  "version": "1.0.0",
+  "description": "PostgreSQL-backed multiple-choice quiz game",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}

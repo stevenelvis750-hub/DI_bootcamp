@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#edf0e8">
+    <title>Stack Check | Developer Quiz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Stack Check home"><span class="brand-mark">S</span> STACK CHECK<span class="brand-dot">.</span></a>
+      <span class="edition"><span class="status-dot"></span> DATABASE EDITION</span>
+      <span class="header-index">FIELD NOTES / 01</span>
+    </header>
+
+    <main class="page-shell">
+      <section class="welcome-view" id="welcome-view" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <p class="kicker">A FIVE-QUESTION KNOWLEDGE CHECK</p>
+          <h1 id="welcome-title">Know your<br><span>stack.</span></h1>
+          <p class="welcome-description">Five quick questions on Node, Express, databases, and HTTP. Choose carefully; every answer counts.</p>
+          <button class="action-button" id="start-button" type="button">Start quiz <span aria-hidden="true">↗</span></button>
+          <p class="welcome-meta">5 QUESTIONS <i></i> INSTANT FEEDBACK <i></i> ONE SHOT EACH</p>
+        </div>
+        <div class="welcome-art" aria-hidden="true">
+          <div class="art-index">SC<br><small>001—005</small></div>
+          <div class="art-rule"></div>
+          <p>BUILD<br>BETTER<br>INSTINCTS</p>
+          <span class="art-cross">+</span>
+        </div>
+      </section>
+
+      <section class="play-view" id="play-view" aria-labelledby="question-title" hidden>
+        <div class="question-area">
+          <div class="question-topline">
+            <p class="kicker">QUESTION <span id="question-number">01 / 05</span></p>
+            <span class="topic-tag" id="question-category">NODE.JS</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1"><span id="progress-fill"></span></div>
+          <h1 class="question-title" id="question-title"></h1>
+          <div class="option-list" id="option-list" role="group" aria-label="Answer choices"></div>
+          <div class="question-actions" id="question-actions">
+            <p class="hint" id="answer-hint">SELECT ONE OPTION</p>
+            <button class="action-button" id="submit-button" type="button" disabled>Check answer <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="feedback" id="feedback" aria-live="polite" hidden>
+            <div><strong id="feedback-title"></strong><p id="feedback-copy"></p></div>
+            <button class="action-button" id="next-button" type="button">Continue <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+        <aside class="score-rail" aria-label="Quiz score">
+          <span class="rail-label">CURRENT SCORE</span>
+          <p class="score-readout"><strong id="current-score">0</strong><span>/ <b id="score-total">5</b></span></p>
+          <div class="rail-divider"></div>
+          <span class="rail-label">KEEP IN MIND</span>
+          <p class="rail-note">Read each option. Your score updates as soon as you lock in an answer.</p>
+          <span class="rail-stamp" aria-hidden="true">SC<br>↗</span>
+        </aside>
+      </section>
+
+      <section class="result-view" id="result-view" aria-labelledby="result-title" hidden>
+        <p class="kicker">QUIZ COMPLETE</p>
+        <h1 id="result-title">That’s a wrap<span class="brand-dot">.</span></h1>
+        <div class="final-score"><strong id="final-score">0</strong><span>OUT OF<br><b id="final-total">5</b></span></div>
+        <p class="result-copy" id="result-copy"></p>
+        <button class="action-button" id="play-again-button" type="button">Play again <span aria-hidden="true">↻</span></button>
+      </section>
+      <p class="page-foot">STACK CHECK <span>•</span> SMALL QUESTIONS, SOLID FOUNDATIONS</p>
+    </main>
+  </body>
+</html>
