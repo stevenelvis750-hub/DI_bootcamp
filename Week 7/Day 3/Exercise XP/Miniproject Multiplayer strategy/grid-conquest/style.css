@@ -1,0 +1,79 @@
+:root {
+  --bg: #0f1218; --card: #181d27; --card-2: #212838; --border: #2c3448;
+  --text: #e8ebf3; --muted: #8e97ad; --accent: #6c8cff;
+  --p1: #4da3ff; --p2: #ff6b6b; --danger: #e5484d; --ok: #4ade80;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+.hidden { display: none !important; }
+h1, h2, h3 { margin: 0 0 .5rem; }
+h1 { font-size: 1.3rem; margin: 0; }
+h2 { font-size: 1.1rem; } h3 { font-size: .95rem; color: var(--muted); }
+.muted { color: var(--muted); } .small { font-size: .8rem; margin: 0; }
+.error { color: var(--danger); min-height: 1.2em; margin: 0; font-size: .9rem; }
+
+button, input {
+  font: inherit; color: inherit; border-radius: 10px; border: 1px solid var(--border);
+  background: var(--card-2); padding: .6rem .9rem; outline: none;
+}
+input:focus { border-color: var(--accent); }
+button { cursor: pointer; background: var(--accent); border-color: transparent; font-weight: 600; color: #fff; }
+button:disabled { opacity: .4; cursor: not-allowed; }
+button.ghost { background: transparent; border-color: var(--border); color: var(--text); font-weight: 500; }
+button.danger { background: var(--danger); }
+
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: .8rem 1.2rem; background: var(--card); border-bottom: 1px solid var(--border); }
+#userbox { display: flex; gap: .7rem; align-items: center; }
+main { max-width: 980px; margin: 0 auto; padding: 1rem; display: grid; gap: 1rem; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; }
+.narrow { max-width: 380px; margin: 3rem auto 0; width: 100%; }
+
+/* Auth */
+.tabs { display: flex; gap: .4rem; margin-bottom: 1rem; }
+.tab { flex: 1; background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.tab.active { background: var(--card-2); color: var(--text); border-color: var(--accent); }
+#auth-form { display: grid; gap: .7rem; }
+
+/* Lobby */
+.game-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
+.game-list li { display: flex; justify-content: space-between; align-items: center; gap: .7rem; background: var(--card-2); padding: .5rem .7rem; border-radius: 10px; }
+.game-list .empty { color: var(--muted); background: none; padding: 0; }
+.rules { margin: 0; padding-left: 1.2rem; color: var(--muted); display: grid; gap: .3rem; }
+#lobby-view { display: grid; gap: 1rem; }
+
+/* Game */
+.game-top { display: flex; align-items: center; gap: .8rem; margin-bottom: .6rem; }
+.banner { padding: .8rem 1rem; border-radius: 12px; background: var(--card-2); border: 1px solid var(--border); font-weight: 600; margin-bottom: 1rem; }
+.banner.turn { border-color: var(--ok); }
+.banner.win { border-color: var(--ok); background: #123324; }
+.banner.lose { border-color: var(--danger); background: #331618; }
+.game-layout { display: grid; grid-template-columns: minmax(0, 520px) 1fr; gap: 1rem; align-items: start; }
+.side { display: grid; gap: 1rem; }
+
+.board { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; width: 100%; aspect-ratio: 1; background: var(--border); padding: 3px; border-radius: 12px; }
+.cell { position: relative; display: grid; place-items: center; background: var(--card); border-radius: 6px; font-size: clamp(14px, 3.6vw, 24px); user-select: none; }
+.cell.obstacle { background: #2a2f3d; }
+.cell.base-1 { box-shadow: inset 0 0 0 2px var(--p1); }
+.cell.base-2 { box-shadow: inset 0 0 0 2px var(--p2); }
+.cell.valid { background: #1d3a2b; cursor: pointer; box-shadow: inset 0 0 0 2px var(--ok); }
+.cell.valid.capture { background: #4a3a12; box-shadow: inset 0 0 0 2px gold; }
+.cell.attackable { cursor: pointer; animation: pulse 1s infinite; }
+@keyframes pulse { 50% { filter: brightness(1.7); } }
+.token { width: 78%; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: .7em; color: #fff; border: 2px solid #fff3; }
+.token.p1 { background: var(--p1); } .token.p2 { background: var(--p2); }
+.token.you { outline: 3px solid #fff; }
+
+.players { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
+.players li { display: flex; align-items: center; gap: .5rem; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.p1 { background: var(--p1); } .dot.p2 { background: var(--p2); }
+.turn-mark { margin-left: auto; color: var(--ok); font-size: .8rem; }
+
+.controls { display: grid; gap: .7rem; }
+.dpad { display: grid; grid-template-columns: repeat(3, 52px); grid-template-areas: ". up ." "left down right"; gap: .4rem; justify-content: center; }
+.dpad button { padding: .6rem 0; }
+.log { margin: 0; padding-left: 1.2rem; max-height: 200px; overflow-y: auto; font-size: .85rem; color: var(--muted); display: flex; flex-direction: column-reverse; }
+
+.toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--card-2); border: 1px solid var(--danger); padding: .6rem 1rem; border-radius: 10px; z-index: 10; }
+
+@media (max-width: 800px) { .game-layout { grid-template-columns: 1fr; } }

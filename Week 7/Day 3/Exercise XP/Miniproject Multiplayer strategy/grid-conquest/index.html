@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grid Conquest</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>⚔️ Grid Conquest</h1>
+    <div id="userbox" class="hidden">
+      <span id="user-name"></span>
+      <button id="logout" class="ghost" type="button">Log out</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Login / register -->
+    <section id="auth-view" class="card narrow">
+      <div class="tabs">
+        <button id="tab-login" class="tab active" type="button">Log in</button>
+        <button id="tab-register" class="tab" type="button">Register</button>
+      </div>
+      <form id="auth-form" autocomplete="off">
+        <input id="auth-username" placeholder="Username" maxlength="20" required />
+        <input id="auth-password" type="password" placeholder="Password (6+ characters)" required />
+        <button id="auth-submit" type="submit">Log in</button>
+        <p id="auth-error" class="error"></p>
+      </form>
+    </section>
+
+    <!-- Lobby -->
+    <section id="lobby-view" class="hidden">
+      <div class="card">
+        <h2>New game</h2>
+        <p class="muted">Create a game and wait for an opponent, or join an open game below.</p>
+        <button id="create-game" type="button">Create game</button>
+      </div>
+      <div class="card"><h2>Open games</h2><ul id="open-games" class="game-list"></ul></div>
+      <div class="card"><h2>My games</h2><ul id="my-games" class="game-list"></ul></div>
+      <div class="card">
+        <h2>How to play</h2>
+        <ul class="rules">
+          <li>Players take turns moving one square up, down, left or right.</li>
+          <li>Rocks 🪨 and the other player block your way.</li>
+          <li>Step onto the enemy base 🏰 to win.</li>
+          <li>Standing next to the enemy base? Press <b>Attack</b> to capture it, even if the enemy is sitting on it.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Game -->
+    <section id="game-view" class="hidden">
+      <div class="game-top">
+        <button id="back" class="ghost" type="button">← Lobby</button>
+        <span id="game-id" class="muted"></span>
+      </div>
+      <div id="banner" class="banner"></div>
+
+      <div class="game-layout">
+        <div id="board" class="board" role="grid" aria-label="Game board"></div>
+
+        <div class="side">
+          <div class="card">
+            <h3>Players</h3>
+            <ul id="players" class="players"></ul>
+          </div>
+          <div class="card controls">
+            <div class="dpad">
+              <button data-dir="up" style="grid-area: up" aria-label="Move up">▲</button>
+              <button data-dir="left" style="grid-area: left" aria-label="Move left">◀</button>
+              <button data-dir="down" style="grid-area: down" aria-label="Move down">▼</button>
+              <button data-dir="right" style="grid-area: right" aria-label="Move right">▶</button>
+            </div>
+            <button id="attack" class="danger" type="button">⚔️ Attack base</button>
+            <button id="forfeit" class="ghost" type="button">Forfeit</button>
+            <p class="muted small">Arrow keys or WASD also move. Click a highlighted square to step there.</p>
+          </div>
+          <div class="card">
+            <h3>Log</h3>
+            <ol id="log" class="log"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="client.js"></script>
+</body>
+</html>

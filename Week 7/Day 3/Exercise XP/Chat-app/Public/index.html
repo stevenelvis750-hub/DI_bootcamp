@@ -1,0 +1,98 @@
+dex · HTML
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat Rooms</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+  <!-- Username screen -->
+  <section id="login" class="login">
+    <form id="login-form" class="login-card" autocomplete="off">
+      <h1>💬 Chat Rooms</h1>
+      <p>Pick a username to jump in.</p>
+      <input id="username" type="text" placeholder="Username" maxlength="20" required autofocus />
+      <button type="submit">Enter chat</button>
+      <p id="login-error" class="error" role="alert"></p>
+    </form>
+  </section>
+ 
+  <!-- Chat screen -->
+  <div id="app" class="app hidden">
+    <aside id="sidebar" class="panel sidebar">
+      <div class="me">
+        <div id="me-avatar" class="avatar"></div>
+        <div class="me-info">
+          <strong id="me-name"></strong>
+          <span class="muted">online</span>
+        </div>
+      </div>
+ 
+      <h2>Rooms</h2>
+      <ul id="room-list" class="list"></ul>
+ 
+      <form id="new-room-form" class="new-room" autocomplete="off">
+        <input id="new-room" type="text" placeholder="New or existing room" maxlength="20" />
+        <button type="submit" title="Join or create room">+</button>
+      </form>
+ 
+      <div class="settings">
+        <label>Theme
+          <select id="theme">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+            <option value="ocean">Ocean</option>
+            <option value="sunset">Sunset</option>
+          </select>
+        </label>
+        <button id="mute" type="button" class="ghost">🔔 Sound on</button>
+      </div>
+    </aside>
+ 
+    <main class="chat">
+      <header class="chat-header">
+        <button id="toggle-sidebar" class="ghost icon-btn" aria-label="Rooms">☰</button>
+        <div class="title">
+          <h2 id="room-title">No room selected</h2>
+          <span id="conn" class="muted"></span>
+        </div>
+        <button id="toggle-users" class="ghost icon-btn" aria-label="Users">👥</button>
+        <button id="leave" class="ghost" disabled>Leave room</button>
+      </header>
+ 
+      <div id="messages" class="messages" aria-live="polite">
+        <div class="empty">Pick a room from the left to start chatting.</div>
+      </div>
+ 
+      <div id="dm-chip" class="dm-chip hidden">
+        Private message to <strong id="dm-name"></strong>
+        <button id="dm-cancel" type="button" class="ghost" aria-label="Cancel private message">✕</button>
+      </div>
+ 
+      <form id="composer" class="composer" autocomplete="off">
+        <div class="emoji-wrap">
+          <button id="emoji-btn" type="button" class="ghost" aria-label="Emoji">😊</button>
+          <div id="emoji-panel" class="emoji-panel hidden"></div>
+        </div>
+        <input id="msg-input" type="text" placeholder="Type a message…" maxlength="500" disabled />
+        <button id="send" type="submit" disabled>Send</button>
+      </form>
+    </main>
+ 
+    <aside id="users-panel" class="panel users">
+      <h2>Active users <span id="user-count" class="badge">0</span></h2>
+      <p class="muted hint">Click a name to send a private message.</p>
+      <ul id="user-list" class="list"></ul>
+    </aside>
+  </div>
+ 
+  <div id="toast" class="toast hidden"></div>
+ 
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
+ 

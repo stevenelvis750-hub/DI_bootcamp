@@ -1,0 +1,13 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "Command-line notes app stored in a JSON file",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "yargs": "^17.7.2"
+  }
+}
