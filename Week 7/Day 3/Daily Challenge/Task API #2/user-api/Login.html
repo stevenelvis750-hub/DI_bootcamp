@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Log in</h1>
+    <form id="form" data-endpoint="/login" autocomplete="off">
+      <label>Username
+        <input name="username" type="text" maxlength="20" required />
+      </label>
+      <label>Password
+        <input name="password" type="password" maxlength="72" required />
+      </label>
+      <button type="submit" disabled>Log in</button>
+      <p id="message" class="message" role="alert"></p>
+    </form>
+    <p class="alt">Not registered yet? <a href="register.html">Create an account</a></p>
+  </main>
+  <script src="form.js"></script>
+</body>
+</html>

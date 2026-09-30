@@ -1,0 +1,14 @@
+{
+  "name": "user-api",
+  "version": "1.0.0",
+  "description": "User registration and login API with Express, bcrypt and JSON file storage",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node test/api.test.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^4.19.2"
+  }
+}

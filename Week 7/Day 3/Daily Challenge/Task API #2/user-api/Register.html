@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>Create an account</h1>
+    <form id="form" data-endpoint="/register" autocomplete="off">
+      <label>Name
+        <input name="name" type="text" maxlength="50" required />
+      </label>
+      <label>Last Name
+        <input name="lastName" type="text" maxlength="50" required />
+      </label>
+      <label>Email
+        <input name="email" type="email" maxlength="100" required />
+      </label>
+      <label>Username
+        <input name="username" type="text" maxlength="20" required />
+      </label>
+      <label>Password
+        <input name="password" type="password" maxlength="72" required />
+      </label>
+      <button type="submit" disabled>Register</button>
+      <p id="message" class="message" role="alert"></p>
+    </form>
+    <p class="alt">Already have an account? <a href="login.html">Log in</a></p>
+  </main>
+  <script src="form.js"></script>
+</body>
+</html>
