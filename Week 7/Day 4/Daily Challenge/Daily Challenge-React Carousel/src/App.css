@@ -1,0 +1,42 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f4f6fb;
+  color: #1e293b;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  text-align: center;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  max-width: 560px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(30, 41, 59, 0.15);
+}
+
+/* Keep every slide the same shape so the carousel doesn't jump between images */
+.carousel .slide img {
+  height: 384px;
+  max-height: 60vw;
+  min-height: 220px;
+  object-fit: cover;
+}
+
+.carousel .thumbs-wrapper { margin: 10px; }
+.carousel .thumb { border-radius: 6px; overflow: hidden; }
