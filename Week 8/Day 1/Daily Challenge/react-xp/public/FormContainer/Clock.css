@@ -1,0 +1,86 @@
+:root {
+  --bg: #0b1320;
+  --ink: #6b7f99;
+  --accent: #ffcf4a;
+  --glow: rgba(255, 207, 74, 0.14);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.clock {
+  position: relative;
+  width: 660px;
+  height: 660px;
+  overflow: hidden;
+  color: var(--ink);
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+
+.item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 20px;
+  margin-top: -10px;
+  line-height: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+  transform-origin: 0 50%;
+  transition: color 0.3s;
+}
+
+.item.active {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* The horizontal bar where the current values line up,
+   reading as one linear date/time from the center outwards */
+.pointer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 328px;
+  height: 26px;
+  margin-top: -13px;
+  border-radius: 0 13px 13px 0;
+  background: var(--glow);
+  border: 1px solid rgba(255, 207, 74, 0.35);
+  border-left: none;
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.corner {
+  position: absolute;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.top-left { top: 8px; left: 12px; }
+.bottom-right { bottom: 8px; right: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ring { transition: none; }
+}
