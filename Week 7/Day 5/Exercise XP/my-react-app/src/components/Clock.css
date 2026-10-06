@@ -1,0 +1,267 @@
+.clock-section {
+  display: grid;
+  justify-items: center;
+  gap: 1.5rem;
+}
+
+.clock-heading {
+  text-align: center;
+}
+
+.clock-eyebrow {
+  color: #8f87e8;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.clock-heading h2 {
+  margin: 0.35rem 0;
+  color: #f4f3ff;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.clock-heading p {
+  margin: 0;
+  color: #a7a6bc;
+  font-size: 0.9rem;
+}
+
+.clock-face {
+  position: relative;
+  width: min(100%, 410px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(173, 167, 255, 0.2);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(90, 81, 158, 0.2), transparent 54%),
+    linear-gradient(145deg, #23223c, #171729 72%);
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.35),
+    inset 0 0 45px rgba(128, 116, 255, 0.08);
+  color: #f8f7ff;
+}
+
+.clock-ring {
+  position: absolute;
+  inset: 9%;
+  border: 1px solid rgba(181, 176, 255, 0.12);
+  border-radius: 50%;
+}
+
+.clock-tick {
+  position: absolute;
+  z-index: 1;
+  background: rgba(190, 185, 255, 0.65);
+}
+
+.tick-north,
+.tick-south {
+  left: 50%;
+  width: 1px;
+  height: 4%;
+  transform: translateX(-50%);
+}
+
+.tick-north {
+  top: 8%;
+}
+
+.tick-south {
+  bottom: 8%;
+}
+
+.tick-east,
+.tick-west {
+  top: 50%;
+  width: 4%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.tick-east {
+  right: 8%;
+}
+
+.tick-west {
+  left: 8%;
+}
+
+.compass-point {
+  position: absolute;
+  z-index: 3;
+  color: #8883b0;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.point-north {
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.point-east {
+  top: 50%;
+  right: 5.5%;
+  transform: translateY(-50%);
+}
+
+.point-south {
+  bottom: 5.5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.point-west {
+  top: 50%;
+  left: 5.5%;
+  transform: translateY(-50%);
+}
+
+.compass-date {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  gap: 0.18rem;
+  max-width: 35%;
+}
+
+.compass-date span {
+  color: #8e89b7;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.compass-date strong {
+  color: #eeecff;
+  font-size: clamp(0.78rem, 3vw, 1rem);
+  font-weight: 600;
+}
+
+.date-year {
+  top: 17%;
+  left: 17%;
+  text-align: left;
+}
+
+.date-weekday {
+  top: 17%;
+  right: 17%;
+  text-align: right;
+}
+
+.date-day {
+  bottom: 17%;
+  left: 17%;
+  text-align: left;
+}
+
+.date-month {
+  right: 17%;
+  bottom: 17%;
+  text-align: right;
+}
+
+.clock-hand {
+  position: absolute;
+  z-index: 2;
+  bottom: 50%;
+  left: 50%;
+  border-radius: 999px;
+  transform-origin: 50% 100%;
+}
+
+.hand-hour {
+  width: 5px;
+  height: 20%;
+  margin-left: -2.5px;
+  background: #c7c2ff;
+}
+
+.hand-minute {
+  width: 3px;
+  height: 29%;
+  margin-left: -1.5px;
+  background: #9e97ff;
+}
+
+.hand-second {
+  z-index: 4;
+  width: 1px;
+  height: 36%;
+  background: #ff8d9b;
+}
+
+.clock-center {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #22213a;
+  border-radius: 50%;
+  background: #ff8d9b;
+  transform: translate(-50%, -50%);
+}
+
+.clock-readout {
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: 0.3rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(173, 167, 255, 0.16);
+  border-radius: 0.7rem;
+  background: rgba(27, 26, 47, 0.94);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.digital-time {
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(1.25rem, 5vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.digital-date {
+  color: #aaa6c9;
+  font-size: clamp(0.55rem, 2.2vw, 0.72rem);
+  white-space: nowrap;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 360px) {
+  .compass-date {
+    max-width: 38%;
+  }
+
+  .date-year,
+  .date-day {
+    left: 14%;
+  }
+
+  .date-weekday,
+  .date-month {
+    right: 14%;
+  }
+}

@@ -51,7 +51,6 @@ function Form() {
   };
 
   return (
-    // noValidate turns off the browser's built-in HTML validation
     <form onSubmit={handleSubmit} noValidate>
       <h2>Sign Up</h2>
       <Input label="First Name" name="firstName" value={values.firstName}
