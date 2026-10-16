@@ -1,0 +1,47 @@
+.book-list {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.genre-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.genre-buttons button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #646cff;
+  background: transparent;
+  color: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.genre-buttons button.active {
+  background: #646cff;
+  color: #fff;
+}
+
+.count {
+  color: #888;
+}
+
+.book-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.book-list li {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #444;
+}
+
+.book-list li em {
+  color: #888;
+}
